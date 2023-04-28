@@ -1,20 +1,21 @@
-name: CI
+name: Preview
 
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
+  preview:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [16.x]
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
