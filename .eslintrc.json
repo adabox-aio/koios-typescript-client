@@ -1,0 +1,180 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2020": true,
+    "jest": true
+  },
+  "ignorePatterns": [
+    "dist" // Don't parse the output found in any dist folder
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    // ***************************************************
+    // * General formatting
+    // ***************************************************
+    "semi-style": [
+      "error",
+      "last"
+    ],
+    "no-tabs": "off",
+    "max-len": [
+      2,
+      180,
+      {
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "no-trailing-spaces": "warn", // disallow trailing whitespace at the end of lines
+    // ***************************************************
+    // * Formatting - General
+    // ***************************************************
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/indent": "off",
+    // ***************************************************
+    // * Formatting { }
+    // ***************************************************
+    "curly": "off", // Use "brace-style" instead
+    "brace-style": [
+      "error",
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "object-curly-spacing": "off", // Use @typescript-eslint instead
+    "@typescript-eslint/object-curly-spacing": [
+      "warn",
+      "always"
+    ],
+    // ***************************************************
+    // * Formatting - Linefeeds and spaces
+    // ***************************************************
+    "padded-blocks": "off",
+    "space-before-function-paren": [
+      "warn",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    // ***************************************************
+    // * Qoutes / Strings / Concaternations
+    // ***************************************************
+    "prefer-template": "warn", // makes string use backticks eg `xx`;
+    "quote-props": [ // Will change let a= { "foo": bar } into { foo: bar }
+      "error",
+      "as-needed"
+    ],
+    "no-useless-escape": "warn", // Will warn of for example this "\'"
+    "no-useless-concat": "warn", // Will warn for example for var a = '1' + '0';
+    "no-param-reassign": "error", // Disallow function input parameters to be modified
+    "no-mixed-operators": "error", // Disallow var foo = a && b < 0 || c > 0 || d + 1 === 0;
+    // ***************************************************
+    // * Variables
+    // ***************************************************
+    "camelcase": "off",
+    "new-cap": "off",
+    // -------------------------------
+    "prefer-const": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-shadow": "off", // Note: you must disable the base rule as it can report incorrect errors
+    "@typescript-eslint/no-shadow": [
+      "error",
+      {
+        "hoist": "functions"
+      }
+    ],
+    "one-var": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": true,
+        "allowNamedExports": false
+      }
+    ],
+    // ***************************************************
+    // * This... and this...
+    // ***************************************************
+    "@typescript-eslint/no-this-alias": "warn",
+    // ***************************************************
+    // * Debugging
+    // ***************************************************
+    "no-console": "off",
+    "no-debugger": "warn",
+    // ***************************************************
+    // * Async/Await/Promise and callbacks
+    // ***************************************************
+    "require-await": "error",
+    "prefer-promise-reject-errors": "error",
+    "handle-callback-err": "error",
+    // ***************************************************
+    // * General development
+    // ***************************************************
+    "eqeqeq": "error",
+    "no-unreachable": "warn", // disallow unreachable statements after a return, throw, continue, or break statement
+    "valid-typeof": "warn", // detects typeof foo === "strnig"
+    // ***************************************************
+    // * Functions
+    // ***************************************************
+    "@typescript-eslint/explicit-module-boundary-types": "warn",
+    "no-useless-return": "warn",
+    "no-empty-function": "error", // Need to write code :)
+    // ***************************************************
+    // * Types
+    // ***************************************************
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          "String": {
+            "message": "Use string instead of String",
+            "fixWith": "string"
+          },
+          "{}": {
+            "message": "Don't use {}, probably replace with 'undefined'"
+            // "fixWith": "undefined"
+          }
+        }
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "warn",
+      {
+        "fixToUnknown": true,
+        "ignoreRestArgs": true
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": false,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": false,
+        "allowDirectConstAssertionInArrowFunctions": false,
+        "allowConciseArrowFunctionExpressionsStartingWithVoid": false
+      }
+    ],
+    // ***************************************************
+    // * TypeScript general
+    // ***************************************************
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}
