@@ -1,7 +1,7 @@
 {
   "name": "koios-typescript-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "REST Client library which allows interacting with Koios Server Instances.",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
@@ -15,9 +15,9 @@
     "nodemon": "./node_modules/.dist/nodemon --watch src/**/*.ts --watch src/**/*.js --exec node --inspect --loader ts-node/esm ./src/index.ts",
     "tsc-watch": "./node_modules/.dist/tsc-watch -b -v -i -w --noclear --compiler \"./node_modules/.dist/tsc\" --onSuccess \"node --inspect --es-module-specifier-resolution=node ./dist/index.js\""
   },
-  "keywords": [],
+  "keywords": ["Cardano", "Koios", "API", "Blockchain", "Query", "TypeScript"],
   "author": "Dudi Edri",
-  "license": "Apache V2",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.1",
