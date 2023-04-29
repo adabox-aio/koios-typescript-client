@@ -13,7 +13,8 @@
   <img src="https://img.shields.io/github/actions/workflow/status/adabox-aio/koios-typescript-client/codeql-analysis.yml?branch=master&style=for-the-badge&label=CodeQL&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cGF0aCBkPSJtNTE0LjI5IDI3NC4xOGMtNi4xNTYyLTUuNjgzNi04LjUyMzQtMTQuNjgtNS4yMTA5LTIyLjI1OGwyLjgzOTgtNy4xMDU1YzQuNzM0NC0xMC44OTEtMS40MjE5LTIzLjIwNy0xMi43ODUtMjYuNTJsLTcuNTc4MS0xLjg5NDVjLTguMDUwOC0yLjM2NzItMTMuNzM0LTkuNDcyNy0xNC4yMDctMTcuOTk2bC0wLjQ3MjY2LTcuNTc4MWMwLjAwMzkwNi0xMS44MzYtMTAuODkxLTIwLjM1OS0yMi4yNTQtMTguNDY1bC03LjU3ODEgMS40MThjLTguNTIzNCAxLjQyMTktMTYuNTc0LTIuMzY3Mi0yMC4zNjMtOS45NDUzbC0zLjc4OTEtNi42Mjg5Yy01LjY4MzYtMTAuNDE4LTE4Ljk0MS0xMy4yNjItMjguNDE0LTYuNjI4OWwtNi4xNTYyIDQuMjYxN2MtNi42Mjg5IDQuNzM0NC0xNi4xMDIgNC43MzQ0LTIyLjczIDBsLTYuMTU2Mi00LjczNDRjLTkuNDcyNy03LjEwNTUtMjMuMjA3LTMuNzg5MS0yOC44ODcgNi42Mjg5bC0zLjc4OTEgNi42Mjg5Yy00LjI2MTcgNy41NzgxLTEyLjMxMiAxMS4zNjctMjAuODM2IDkuOTQ1M2wtNy41NzgxLTEuNDIxOWMtMTEuODQtMS44OTQ1LTIyLjI1OCA2LjYyODktMjMuMjA3IDE4LjQ2OWwtMC40NzI2NiA3LjU3ODFjLTAuNDcyNjYgOC41MjM0LTYuMTU2MiAxNS42MjktMTQuMjA3IDE3Ljk5NmwtNy41ODIgMS44OTQ1Yy0xMS4zNjcgMy4zMTY0LTE3LjUyMyAxNS42MjktMTIuNzg1IDI2LjUybDIuODM5OCA3LjEwNTVjMy4zMTY0IDcuNTc4MSAwLjk0NTMxIDE2LjU3NC01LjIxMDkgMjIuMjU4bC01LjY4MzYgNS4yMTA5Yy04Ljk5NjEgNy41NzgxLTguOTk2MSAyMS43ODUgMCAyOS4zNjNsNS42ODM2IDUuMjEwOWM2LjE1NjIgNS42ODM2IDguNTIzNCAxNC42OCA1LjIxMDkgMjIuMjU4bC0zLjMxNjQgNy4xMDE2Yy00LjczNDQgMTAuODkxIDEuNDIxOSAyMy4yMDcgMTIuNzg1IDI2LjUybDcuNTc4MSAxLjg5NDVjOC4wNTA4IDIuMzY3MiAxMy43MzQgOS40NzI3IDE0LjIwNyAxNy45OTZsMC40NzI2NiA3LjU3ODFjMC40NzI2NiAxMS44NCAxMS4zNjcgMjAuMzYzIDIyLjczIDE4LjQ2OWw3LjU4Mi0xLjQyMTljOC41MjM0LTEuNDIxOSAxNi41NzQgMi4zNjcyIDIwLjM2MyA5Ljk0NTNsMy43ODkxIDYuNjI4OWM1LjY4MzYgMTAuNDE4IDE4Ljk0MSAxMy4yNjIgMjguNDE0IDYuNjI4OWw2LjE1NjItNC4yNjE3YzYuNjI4OS00LjczNDQgMTYuMTAyLTQuNzM0NCAyMi43MyAwbDYuMTU2MiA0LjczNDRjOS40NzI3IDcuMTA1NSAyMy4yMDcgMy43ODkxIDI4Ljg4Ny02LjYyODlsMy43ODkxLTYuNjI4OWM0LjI2MTctNy41NzgxIDEyLjMxMi0xMS4zNjcgMjAuODM2LTkuOTQ1M2w3LjU3ODEgMS40MjE5YzExLjg0IDEuODk0NSAyMi4yNTgtNi42Mjg5IDIzLjIwNy0xOC40NjlsMC40NzI2Ni03LjU3ODFjMC40NzI2Ni04LjUyMzQgNi4xNTYyLTE1LjYyOSAxNC4yMDctMTcuOTk2bDcuNTc4MS0xLjg5NDVjMTEuMzY3LTMuMzE2NCAxNy41MjMtMTUuNjI5IDEyLjc4NS0yNi41MmwtMi44Mzk4LTcuMTA1NWMtMy4zMTY0LTcuNTc4MS0wLjk0NTMxLTE2LjU3NCA1LjIxMDktMjIuMjU4bDUuNjgzNi01LjIxMDljOC45OTYxLTcuNTc4MSA4Ljk5NjEtMjEuNzg1IDAtMjkuMzYzem0tMTM4LjI5IDEwOC45M2MtNDkuMjU0IDAtODkuNTA4LTM5Ljc4MS04OS41MDgtODkuNTA4IDAtNDkuMjU0IDM5Ljc4MS04OS41MDggODkuNTA4LTg5LjUwOCA0OS4yNTQgMCA4OS41MDggMzkuNzgxIDg5LjUwOCA4OS41MDggMCA0OS43MjctNDAuMjU0IDg5LjUwOC04OS41MDggODkuNTA4em0zNC41NzQtMTM0Ljk3IDIxLjMxMiAyMS4zMTItNDguNzgxIDQ4Ljc3Ny0yMS4zMTIgMjEuMzEyLTQxLjY3Ni00MS42NzYgMjEuMzEyLTIxLjMxMiAyMC4zNjMgMjAuMzYzem0tODEuNDU3IDM1Mi4zNXYtMTMzLjU1YzUuNjgzNiAxLjg5NDUgMTEuMzY3IDMuMzE2NCAxNy41MjMgMy4zMTY0IDEwLjQxOCAwIDE5Ljg5MS0zLjMxNjQgMjguNDE0LTguOTk2MWwwLjQ3MjY2LTAuNDcyNjYgMC40NzI2NiAwLjQ2ODc1YzguNTIzNCA2LjE1NjIgMTguNDY5IDkuNDcyNyAyOC40MTQgOS40NzI3IDYuMTU2MiAwIDEyLjMxMi0xLjQyMTkgMTcuOTk2LTMuNzg5MXYxMzQuMDJjMCA0LjI2MTctNC43MzQ0IDYuMTU2Mi04LjA1MDggMy43ODkxbC0zNy40MTQtMzAuMzA5Yy0wLjk0NTMxLTAuOTQ1MzEtMi44Mzk4LTAuOTQ1MzEtNC4yNjE3IDBsLTM2LjQ2NSAyOS44MzZjLTIuMzY3MiAyLjM2NzItNy4xMDE2IDAuNDcyNjYtNy4xMDE2LTMuNzg5MXoiIGZpbGw9IiNmZmYiLz4KPC9zdmc+Cg==" alt="CodeQL"/>
 </a>
 <a href='https://github.com/adabox-aio/koios-typescript-client/actions?query=workflow%3A"Codecov"'>
-  <img src="https://img.shields.io/codecov/c/github/adabox-aio/koios-typescript-client?style=for-the-badge&token=E7JGILPFX1&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cGF0aCBkPSJtNTc5Ljc3IDM3Mi4yNmMtMy43NTM5IDMuNTAzOS05LjEyNSA0LjY3NTgtMTQgMy4wNDY5LTcuMDg1OS0xLjk5NjEtMTQuNDIyLTIuOTkyMi0yMS43ODUtMi45NTctMTcuNTk4IDAuMDE5NTMyLTM0Ljc5MyA1LjI4NTItNDkuMzgzIDE1LjEyNS0wLjI2NTYyIDAuMjgxMjUtMC41NDY4OCAwLjI4MTI1LTAuNjk1MzEgMC40MTQwNi0wLjgxNjQxIDAuNTM1MTYtMS43MDMxIDAuOTUzMTItMi42MzY3IDEuMjQyMi0wLjQxNDA2IDAuMTQ4NDQtMC44MjgxMyAwLjE0ODQ0LTEuMjQyMiAwLjI4MTI1LTAuODI0MjIgMC4xNjc5Ny0xLjY2MDIgMC4yNjE3Mi0yLjUgMC4yODEyNS0wLjEzMjgxIDAtMC40MTQwNiAwLjEzMjgxLTAuNTQ2ODggMC4xMzI4MXMtMC40MTQwNi0wLjEzMjgxLTAuNTYyNS0wLjEzMjgxaC0wLjAwMzkwNmMtMS42NjggMC4wMjM0MzgtMy4zMjQyLTAuMzA4NTktNC44NTE2LTAuOTc2NTYtMjkuMTUyLTExLjY0MS02MC4yOTctMTcuNDY5LTkxLjY4NC0xNy4xNTJ2MTc3LjgzYy0wLjI1MzkxIDEyLjIyMy02LjkxOCAyMy40MDYtMTcuNTQzIDI5LjQ0NS0xMC42MjkgNi4wMzkxLTIzLjY0OCA2LjAzOTEtMzQuMjc3IDAtMTAuNjI1LTYuMDM5MS0xNy4yOTMtMTcuMjIzLTE3LjU0My0yOS40NDV2LTIwLjgwOWMwLjI0MjE5LTcuNDg0NCA2LjM4MjgtMTMuNDI2IDEzLjg3NS0xMy40MjYgNy40ODgzIDAgMTMuNjI5IDUuOTQxNCAxMy44NzEgMTMuNDI2djIwLjgwOWMtMC4wODU5MzcgMS44OTQ1IDAuNjA1NDcgMy43NDIyIDEuOTE0MSA1LjExMzMgMS4zMTI1IDEuMzcxMSAzLjEyNSAyLjE0ODQgNS4wMTk1IDIuMTQ4NCAxLjg5ODQgMCAzLjcxMDktMC43NzczNCA1LjAyMzQtMi4xNDg0IDEuMzA4Ni0xLjM3MTEgMi0zLjIxODggMS45MTAyLTUuMTEzM3YtMTc3Yy0zMS40MjYgMi4xMDE2LTYyLjUyIDcuNzMwNS05Mi42ODggMTYuNzgxLTAuOTY4NzUgMC4yMzgyOC0xLjk2NDggMC4zMzIwMy0yLjk2MDkgMC4yODEyNS0wLjQ3MjY2IDAuMjA3MDMtMC45Njg3NSAwLjM0Mzc1LTEuNDc2NiAwLjQxNDA2LTAuMTMyODEgMC0wLjI4MTI1LTAuMTMyODEtMC41NDY4Ny0wLjEzMjgxaC0wLjAwMzkwN2MtMS44NzUgMC0zLjcyNjYtMC40MjU3OC01LjQxNDEtMS4yNDIyLTAuMTMyODEgMC0wLjEzMjgxIDAtMC4yODEyNS0wLjE0ODQ0LTI0LjczNC04LjU4OTgtNTAuNzgxLTEyLjc3LTc2Ljk1Ny0xMi4zNDQtNC4yOTMtMC4wMTU2MjUtOC4zMzU5LTIuMDE1Ni0xMC45NTMtNS40MTQxLTIuNjc1OC0zLjQxMDItMy41NTQ3LTcuODk0NS0yLjM2NzItMTIuMDYyIDAuNDI5NjktMS42NTYyIDQzLjU3LTE1My41NiAxOTMuNjUtMTYyLjQ0di0xNC4yODFjMC4yNDYwOS03LjQ4ODMgNi4zODY3LTEzLjQzIDEzLjg3NS0xMy40MyA3LjQ5MjIgMCAxMy42MzMgNS45NDE0IDEzLjg3NSAxMy40M3YxNC4yODFjMTUwLjA4IDguODc4OSAxOTMuMjIgMTYwLjc4IDE5My42NCAxNjIuNDQgMS4zOTQ1IDQuOTE4LTAuMDQ2ODc1IDEwLjIwMy0zLjc0NjEgMTMuNzM0eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K" alt="Coverage"/>
+  <img src=https://img.shields.io/codecov/c/gh/adabox-aio/koios-typescript-client?style=for-the-badge&token=WPURCCZKQD&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cGF0aCBkPSJtNTc5Ljc3IDM3Mi4yNmMtMy43NTM5IDMuNTAzOS05LjEyNSA0LjY3NTgtMTQgMy4wNDY5LTcuMDg1OS0xLjk5NjEtMTQuNDIyLTIuOTkyMi0yMS43ODUtMi45NTctMTcuNTk4IDAuMDE5NTMyLTM0Ljc5MyA1LjI4NTItNDkuMzgzIDE1LjEyNS0wLjI2NTYyIDAuMjgxMjUtMC41NDY4OCAwLjI4MTI1LTAuNjk1MzEgMC40MTQwNi0wLjgxNjQxIDAuNTM1MTYtMS43MDMxIDAuOTUzMTItMi42MzY3IDEuMjQyMi0wLjQxNDA2IDAuMTQ4NDQtMC44MjgxMyAwLjE0ODQ0LTEuMjQyMiAwLjI4MTI1LTAuODI0MjIgMC4xNjc5Ny0xLjY2MDIgMC4yNjE3Mi0yLjUgMC4yODEyNS0wLjEzMjgxIDAtMC40MTQwNiAwLjEzMjgxLTAuNTQ2ODggMC4xMzI4MXMtMC40MTQwNi0wLjEzMjgxLTAuNTYyNS0wLjEzMjgxaC0wLjAwMzkwNmMtMS42NjggMC4wMjM0MzgtMy4zMjQyLTAuMzA4NTktNC44NTE2LTAuOTc2NTYtMjkuMTUyLTExLjY0MS02MC4yOTctMTcuNDY5LTkxLjY4NC0xNy4xNTJ2MTc3LjgzYy0wLjI1MzkxIDEyLjIyMy02LjkxOCAyMy40MDYtMTcuNTQzIDI5LjQ0NS0xMC42MjkgNi4wMzkxLTIzLjY0OCA2LjAzOTEtMzQuMjc3IDAtMTAuNjI1LTYuMDM5MS0xNy4yOTMtMTcuMjIzLTE3LjU0My0yOS40NDV2LTIwLjgwOWMwLjI0MjE5LTcuNDg0NCA2LjM4MjgtMTMuNDI2IDEzLjg3NS0xMy40MjYgNy40ODgzIDAgMTMuNjI5IDUuOTQxNCAxMy44NzEgMTMuNDI2djIwLjgwOWMtMC4wODU5MzcgMS44OTQ1IDAuNjA1NDcgMy43NDIyIDEuOTE0MSA1LjExMzMgMS4zMTI1IDEuMzcxMSAzLjEyNSAyLjE0ODQgNS4wMTk1IDIuMTQ4NCAxLjg5ODQgMCAzLjcxMDktMC43NzczNCA1LjAyMzQtMi4xNDg0IDEuMzA4Ni0xLjM3MTEgMi0zLjIxODggMS45MTAyLTUuMTEzM3YtMTc3Yy0zMS40MjYgMi4xMDE2LTYyLjUyIDcuNzMwNS05Mi42ODggMTYuNzgxLTAuOTY4NzUgMC4yMzgyOC0xLjk2NDggMC4zMzIwMy0yLjk2MDkgMC4yODEyNS0wLjQ3MjY2IDAuMjA3MDMtMC45Njg3NSAwLjM0Mzc1LTEuNDc2NiAwLjQxNDA2LTAuMTMyODEgMC0wLjI4MTI1LTAuMTMyODEtMC41NDY4Ny0wLjEzMjgxaC0wLjAwMzkwN2MtMS44NzUgMC0zLjcyNjYtMC40MjU3OC01LjQxNDEtMS4yNDIyLTAuMTMyODEgMC0wLjEzMjgxIDAtMC4yODEyNS0wLjE0ODQ0LTI0LjczNC04LjU4OTgtNTAuNzgxLTEyLjc3LTc2Ljk1Ny0xMi4zNDQtNC4yOTMtMC4wMTU2MjUtOC4zMzU5LTIuMDE1Ni0xMC45NTMtNS40MTQxLTIuNjc1OC0zLjQxMDItMy41NTQ3LTcuODk0NS0yLjM2NzItMTIuMDYyIDAuNDI5NjktMS42NTYyIDQzLjU3LTE1My41NiAxOTMuNjUtMTYyLjQ0di0xNC4yODFjMC4yNDYwOS03LjQ4ODMgNi4zODY3LTEzLjQzIDEzLjg3NS0xMy40MyA3LjQ5MjIgMCAxMy42MzMgNS45NDE0IDEzLjg3NSAxMy40M3YxNC4yODFjMTUwLjA4IDguODc4OSAxOTMuMjIgMTYwLjc4IDE5My42NCAxNjIuNDQgMS4zOTQ1IDQuOTE4LTAuMDQ2ODc1IDEwLjIwMy0zLjc0NjEgMTMuNzM0eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K alt="Coverage" />
+
 </a>
 <a href='https://opensource.org/licenses/Apache-2.0'>
   <img src="https://img.shields.io/github/license/adabox-aio/koios-typescript-client?color=blue&label=License&style=for-the-badge" alt="License" />
@@ -26,13 +27,34 @@
 
 </p>
 
-## What is Koios?
-**Koios** Java Client Library is based on [Koios](https://www.koios.rest/) Elastic Query Layer for [Cardano Node](https://github.com/input-output-hk/cardano-node/) by [Cardano Community Guild Operators](https://github.com/cardano-community). <br>
+# Koios TypeScript Client
+>**Koios Typescript Client** is a REST Client library which allows interacting with **Koios** Server Instances. **Koios TypeScript Client** Library is based on [Koios](https://www.koios.rest/) Elastic Query Layer for [Cardano Node](https://github.com/input-output-hk/cardano-node/) by [Cardano Community Guild Operators](https://github.com/cardano-community). <br>
 **Koios** is best described as a Decentralized and Elastic RESTful query layer for exploring data on Cardano blockchain to consume within applications/wallets/explorers/etc. <br>
 Resource and maintenance requirements for Cardano blockchain components (e.g. cardano-node, cardano-db-sync) are ever-growing. Along with that, every builder needs to identify how to query complex information from the chain.
 
-## Overview
-**Koios Typescript Client** is a REST Client library which allows interacting with **Koios** Server Instances.
+## Table of contents
+- [Prerequisites](#prerequisites)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Get Koios Backend Service](#get-koios-backend-service)
+  - [Get Koios Backend Services](#get-koios-backend-services)
+  - [Advanced Query Example (Preview)](#advanced-query-example-preview)
+- [Supported Environment Variables](#supported-environment-variables)
+- [Contributing](#contributing)
+
+## Prerequisites
+This project requires NodeJS (version 16 or later) and NPM.
+[Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
+
+```sh
+$ npm -v ; node -v
+9.6.3
+v16.5.0
+```
 
 ## Features
 - Synchronous REST messaging
@@ -282,189 +304,94 @@ Resource and maintenance requirements for Cardano blockchain components (e.g. ca
 </table>
 </details>
 
-[//]: # (<details open>)
-
-[//]: # (<summary>Version Compatability Chart</summary>)
-
-[//]: # ()
-[//]: # (| Koios Instance | Koios Java Client |)
-
-[//]: # (|:--------------:|:-----------------:|)
-
-[//]: # (|     1.0.10     |      1.17.1       |)
-
-[//]: # (|     1.0.9      |      1.16.3       |)
-
-[//]: # (|     1.0.8      |      1.15.2       |)
-
-[//]: # (|     1.0.7      |      1.14.1       |)
-
-[//]: # (|     1.0.6      |       1.13        |)
-
-[//]: # (</details>)
-
-[//]: # (## Use as a library in a Java Project)
-
-[//]: # ()
-[//]: # (### Add dependency)
-
-[//]: # ()
-[//]: # (- For Maven, add the following dependency to project's pom.xml)
-
-[//]: # (```xml)
-
-[//]: # (<dependency>)
-
-[//]: # (    <groupId>io.github.cardano-community</groupId>)
-
-[//]: # (    <artifactId>koios-java-client</artifactId>)
-
-[//]: # (    <version>1.17.1</version>)
-
-[//]: # (</dependency>)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (- For Gradle, add the following dependency to build.gradle)
-
-[//]: # (```)
-
-[//]: # (compile group: 'io.github.cardano-community', name: 'koios-java-client', version: '1.17.1')
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (### Get Koios Backend Service)
-
-[//]: # (- Mainnet)
-
-[//]: # (```java )
-
-[//]: # (BackendService backendService = BackendFactory.getKoiosMainnetService&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (- Preview)
-
-[//]: # (```java )
-
-[//]: # (BackendService backendService = BackendFactory.getKoiosPreviewService&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (- Preprod)
-
-[//]: # (```java )
-
-[//]: # (BackendService backendService = BackendFactory.getKoiosPreprodService&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (- Guildnet)
-
-[//]: # (```java )
-
-[//]: # (BackendService backendService = BackendFactory.getKoiosGuildService&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (### Get Koios Backend Services)
-
-[//]: # (```java )
-
-[//]: # (NetworkService networkService = backendService.getNetworkService&#40;&#41;;)
-
-[//]: # (EpochService epochService = backendService.getEpochService&#40;&#41;;)
-
-[//]: # (BlockService blockService = backendService.getBlockService&#40;&#41;;)
-
-[//]: # (TransactionsService transactionsService = backendService.getTransactionsService&#40;&#41;;)
-
-[//]: # (AddressService addressService = backendService.getAddressService&#40;&#41;;)
-
-[//]: # (AccountService accountService = backendService.getAccountService&#40;&#41;;)
-
-[//]: # (AssetService assetService = backendService.getAssetService&#40;&#41;;)
-
-[//]: # (PoolService poolService = backendService.getPoolService&#40;&#41;;)
-
-[//]: # (ScriptService scriptService = backendService.getScriptService&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (### Advanced Query Example &#40;Preview&#41;)
-
-[//]: # (#### Querying a Descending Order of All Address Transactions since Block No. #42248 to Block No. #69447 &#40;inclusive&#41;, Limited to Maximum of 10 Results.)
-
-[//]: # (```java )
-
-[//]: # (String address = "addr_test1qrvaadv0h7atv366u6966u4rft2svjlf5uajy8lkpsgdrc24rnskuetxz2u3m5ac22s3njvftxcl2fc8k8kjr088ge0qz98xmv";)
-
-[//]: # ()
-[//]: # (Options options = Options.builder&#40;&#41;)
-
-[//]: # (        .option&#40;Limit.of&#40;10&#41;&#41;)
-
-[//]: # (        .option&#40;Offset.of&#40;0&#41;&#41;)
-
-[//]: # (        .option&#40;Order.by&#40;"block_height", SortType.DESC&#41;&#41;)
-
-[//]: # (        .option&#40;Filter.of&#40;"block_height", FilterType.GTE, "42248"&#41;&#41;)
-
-[//]: # (        .option&#40;Filter.of&#40;"block_height", FilterType.LTE, "69447"&#41;&#41;.build&#40;&#41;;)
-
-[//]: # ()
-[//]: # (Result<List<TxHash>> transactionsResult = addressService.getAddressTransactions&#40;List.of&#40;address&#41;, options&#41;;)
-
-[//]: # (```)
-
-[//]: # (### Supported Environment Variables)
-
-[//]: # ()
-[//]: # (| Variable                           |  Type   | Description                                                    | Default |)
-
-[//]: # (|------------------------------------|:-------:|----------------------------------------------------------------|:-------:|)
-
-[//]: # (| KOIOS_JAVA_LIB_LOGGING             | boolean | Toggle Logging                                                 |  false  |)
-
-[//]: # (| KOIOS_JAVA_LIB_RETRIES_COUNT       | integer | Sets the max retry count upon request timeout                  |    5    |)
-
-[//]: # (| KOIOS_JAVA_LIB_READ_TIMEOUT_SEC    | integer | Sets the default read timeout for new connections &#40;seconds&#41;    |   60    |)
-
-[//]: # (| KOIOS_JAVA_LIB_CONNECT_TIMEOUT_SEC | integer | Sets the default connect timeout for new connections &#40;seconds&#41; |   60    |)
-
-[//]: # ()
-[//]: # (## Clone & Build with Maven)
-
-[//]: # (```shell)
-
-[//]: # (git clone https://github.com/adabox-aio/koios-typescript-client.git)
-
-[//]: # (cd koios-java-client)
-
-[//]: # (mvn clean install)
-
-[//]: # (```)
-
-[//]: # (<hr/>)
-
-[//]: # ()
-[//]: # (<p style="text-align: center">)
-
-[//]: # (    <a href="CONTRIBUTING.md">:triangular_ruler: Contributing</a>)
-
-[//]: # (      |)
-
-[//]: # (    <a href="SPONSORS.md">:gift_heart: Sponsors</a>)
-
-[//]: # (      |)
-
-[//]: # (    <a href="https://discord.gg/J5NeDGxMGP"><img src=".github/discord.svg" alt="Discord">Discord &#40;#koios-java-client&#41;</a>)
-
-[//]: # (</p>)
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+## Installation
+
+**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
+
+Start with cloning this repo on your local machine:
+
+```sh
+$ git clone https://github.com/adabox-aio/koios-typescript-client.git
+$ cd koios-typescript-client
+```
+
+To install and set up the library, run:
+
+```sh
+$ npm install koios-typescript-client
+```
+
+## Usage
+
+### Get Koios Backend Service
+- Mainnet
+```ts
+const koiosBackendService = BackendFactory.getKoiosMainnetService()
+```
+- Preview
+```ts
+const koiosBackendService = BackendFactory.getKoiosPreviewService()
+```
+- Preprod
+```ts
+const koiosBackendService = BackendFactory.getKoiosPreprodService()
+```
+
+### Get Koios Backend Services
+```ts
+const koiosNetworkService = koiosBackendService.getNetworkService()
+const koiosEpochService = koiosBackendService.getEpochService()
+const koiosBlockService = koiosBackendService.getBlockService()
+const koiosTransactionsService = koiosBackendService.getTransactionsService()
+const koiosAddressService = koiosBackendService.getAddressService()
+const koiosAssetService = koiosBackendService.getAssetService()
+const koiosPoolService = koiosBackendService.getPoolService()
+const koiosScriptService = koiosBackendService.getScriptService()
+const koiosAccountService = koiosBackendService.getAccountService()
+```
+### Advanced Query Example (Preview)
+>Querying a Descending Order of All Address Transactions since Block No. #42248 to Block No. #69447 (inclusive), Limited to Maximum of 10 Results.
+```ts
+const addresses = [
+    'addr_test1qrvaadv0h7atv366u6966u4rft2svjlf5uajy8lkpsgdrc24rnskuetxz2u3m5ac22s3njvftxcl2fc8k8kjr088ge0qz98xmv',
+]
+const options = Options.builder()
+    .option(Limit.of(10))
+    .option(Offset.of(0))
+    .option(Order.by("block_height", SortType.DESC))
+    .option(Filter.of("block_height", FilterType.GTE, "42248"))
+    .option(Filter.of("block_height", FilterType.LTE, "69447")).build();
+
+const result = await koiosAddressService.getAddressTransactions(addresses, undefined, options)
+console.log(result)
+```
+
+## Supported Environment Variables
+
+| Variable               |  Type   | Description                                                 | Default |
+|------------------------|:-------:|-------------------------------------------------------------|:-------:|
+| KOIOS_MAX_RETRIES      | integer | Sets the max retry count upon request timeout               |    5    |
+| KOIOS_READ_TIMEOUT_SEC | integer | Sets the default read timeout for new connections (seconds) |   60    |
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+1.  Fork it!
+2.  Create your feature branch: `git checkout -b my-new-feature`
+3.  Add your changes: `git add .`
+4.  Commit your changes: `git commit -am 'Add some feature'`
+5.  Push to the branch: `git push origin my-new-feature`
+6.  Submit a pull request :sunglasses:
+
+<hr/>
+
+<p style="text-align: center">
+    <a href="https://discord.gg/2ratVpAJNT"><img src=".github/discord.svg" alt="Discord">Discord</a>
+      |
+    <a href="https://twitter.com/AdaBoxIO"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 -6 24 24" fill="#1D9BF0"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg> Twitter</a>
+</p>
