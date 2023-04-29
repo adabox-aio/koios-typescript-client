@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "Dudi Edri",
-  "license": "ISC",
+  "license": "Apache V2",
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.1",
