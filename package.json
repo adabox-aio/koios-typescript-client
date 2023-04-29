@@ -1,6 +1,6 @@
 {
   "name": "koios-typescript-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "REST Client library which allows interacting with Koios Server Instances.",
   "main": "src/index.ts",
   "type": "module",
