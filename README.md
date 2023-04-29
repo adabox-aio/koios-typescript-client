@@ -391,7 +391,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 <hr/>
 
 <p style="text-align: center">
-    <a href="https://discord.gg/2ratVpAJNT"><img src=".github/discord.svg" alt="Discord"> Discord</a>
+    <a href="https://discord.gg/2ratVpAJNT"><img src="https://raw.githubusercontent.com/adabox-aio/koios-typescript-client/master/.github/discord.svg" alt="Discord"> Discord</a>
       |
-    <a href="https://twitter.com/AdaBoxIO"><img src=".github/twitter.svg" alt="Twitter"> Twitter</a>
+    <a href="https://twitter.com/AdaBoxIO"><img src="https://raw.githubusercontent.com/adabox-aio/koios-typescript-client/master/.github/twitter.svg" alt="Twitter"> Twitter</a>
 </p>
