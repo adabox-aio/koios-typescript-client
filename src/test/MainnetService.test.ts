@@ -44,6 +44,12 @@ describe("koiosEpochService", () => {
         expect(result.length).eq(1)
         expect(result[0].epoch_no).toBe(320)
     });
+    test("getLatestProtocolParameters", async () => {
+        const result = await koiosEpochService.getEpochProtocolParameters()
+        console.log(result[0])
+        expect(result).not.toBe(null)
+        expect(Array.isArray(result)).toBeTruthy()
+    });
     test("getEpochProtocolParameters", async () => {
         const result = await koiosEpochService.getEpochProtocolParameters(320)
         console.log(result)

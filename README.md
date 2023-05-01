@@ -18,8 +18,8 @@
 <a href='https://opensource.org/licenses/Apache-2.0'>
   <img src="https://img.shields.io/github/license/adabox-aio/koios-typescript-client?color=blue&label=License&style=for-the-badge" alt="License" />
 </a>
-<a href='https://opensource.org/licenses/Apache-2.0'>
-  <img src="https://img.shields.io/npm/v/koios-typescript-client?logo=npm&style=for-the-badge" alt="Version" />
+<a href='https://www.npmjs.com/package/@adabox/koios-ts-client'>
+  <img src="https://img.shields.io/npm/v/@adabox/koios-ts-client?logo=npm&style=for-the-badge" alt="Version" />
 </a>
 
 <br/>
@@ -324,7 +324,7 @@ $ cd koios-typescript-client
 To install and set up the library, run:
 
 ```sh
-$ npm i @adabox/koios-typescript-client
+$ npm i @adabox/koios-ts-client
 ```
 
 ## Usage

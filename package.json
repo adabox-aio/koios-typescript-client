@@ -1,26 +1,38 @@
 {
   "name": "@adabox/koios-ts-client",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Cardano REST Client library which allows interacting with The Cardano Blockchain.",
   "files": [
-    "lib/**/*.js",
-    "lib/**/*.ts"
+    "dist/**/*.js",
+    "dist/**/*.ts"
   ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc-esm",
     "test": "vitest run",
     "clean": "rimraf ./src/**/dist ./dist ./src/**/tsconfig.tsbuildinfo tsconfig.tsbuildinfo",
     "rebuild": "npm run clean && npm run build",
-    "buildw": "tsc -b -v -w --preserveWatchOutput -watch --extendedDiagnostics",
+    "buildw": "tsc-esm -b -v -w --preserveWatchOutput -watch --extendedDiagnostics",
     "eslint": "./node_modules/.dist/eslint \"./src/**/**.ts\"",
     "node": "set TS_NODE_FILES=true & node --inspect --loader ts-node/esm src/index.ts",
     "nodemon": "./node_modules/.dist/nodemon --watch src/**/*.ts --watch src/**/*.js --exec node --inspect --loader ts-node/esm ./src/index.ts",
     "tsc-watch": "./node_modules/.dist/tsc-watch -b -v -i -w --noclear --compiler \"./node_modules/.dist/tsc\" --onSuccess \"node --inspect --es-module-specifier-resolution=node ./dist/index.js\""
   },
-  "keywords": ["Cardano", "Koios", "API", "Blockchain", "Query", "TypeScript", "Adabox"],
+  "keywords": [
+    "Cardano",
+    "Koios",
+    "API",
+    "Blockchain",
+    "Query",
+    "TypeScript",
+    "Adabox"
+  ],
   "author": "Adabox Organization",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@digitak/tsc-esm": "^3.1.4",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.1",
     "@typescript-eslint/eslint-plugin": "^5.59.0",

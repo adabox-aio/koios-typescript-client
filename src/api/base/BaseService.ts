@@ -2,8 +2,7 @@
 // import Bottleneck from "bottleneck";
 import {Options} from "../../factory/options/Options";
 import fetch from "node-fetch";
-
-const querystring = require('querystring');
+import * as queryString from "querystring";
 
 export class BaseService {
 
@@ -98,7 +97,7 @@ export class BaseService {
         let paramsMap;
         if (options && options.getOptions().length > 0) {
             paramsMap = options.toMap();
-            return `?${querystring.stringify(paramsMap)}`;
+            return `?${queryString.stringify(paramsMap)}`;
         }
         return ''
     }
