@@ -104,7 +104,7 @@ export class BaseService {
     }
 
     private async delay(ms: number) {
-        return new Promise((resolve) => setTimeout(() => resolve(), ms));
+        return new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
     }
 
     public buildBody(key: string, value: any, afterBlockHeight?: number, epochNo?: number) {

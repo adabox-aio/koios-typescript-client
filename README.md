@@ -324,7 +324,7 @@ $ cd koios-typescript-client
 To install and set up the library, run:
 
 ```sh
-$ npm install koios-typescript-client
+$ npm i @adabox/koios-typescript-client
 ```
 
 ## Usage

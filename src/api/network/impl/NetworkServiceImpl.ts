@@ -8,15 +8,6 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class NetworkServiceImpl extends BaseService implements NetworkService {
 
-    /**
-     * Network Service Implementation Constructor
-     *
-     * @param baseUrl BaseUrl
-     */
-    constructor(private readonly baseUrl: string) {
-        super(baseUrl)
-    }
-
     public getChainTip(options?: Options): Promise<any> {
         return this.get(`tip${this.optionsToQueryParams(options)}`)
             .then(async response => {

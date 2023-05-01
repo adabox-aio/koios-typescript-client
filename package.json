@@ -1,8 +1,12 @@
 {
-  "name": "koios-typescript-client",
-  "version": "1.0.1",
-  "description": "REST Client library which allows interacting with Koios Server Instances.",
-  "main": "src/index.ts",
+  "name": "@adabox/koios-typescript-client",
+  "version": "1.0.0",
+  "description": "Cardano REST Client library which allows interacting with The Cardano Blockchain.",
+  "main": "lib/index.ts",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.ts"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc",
@@ -15,8 +19,8 @@
     "nodemon": "./node_modules/.dist/nodemon --watch src/**/*.ts --watch src/**/*.js --exec node --inspect --loader ts-node/esm ./src/index.ts",
     "tsc-watch": "./node_modules/.dist/tsc-watch -b -v -i -w --noclear --compiler \"./node_modules/.dist/tsc\" --onSuccess \"node --inspect --es-module-specifier-resolution=node ./dist/index.js\""
   },
-  "keywords": ["Cardano", "Koios", "API", "Blockchain", "Query", "TypeScript"],
-  "author": "Dudi Edri",
+  "keywords": ["Cardano", "Koios", "API", "Blockchain", "Query", "TypeScript", "Adabox"],
+  "author": "Adabox Organization",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/express": "^4.17.17",
@@ -35,5 +39,8 @@
   "dependencies": {
     "bottleneck": "^2.19.5",
     "node-fetch": "^3.3.1"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
