@@ -76,7 +76,7 @@ export class Filter extends Option {
         return new Filter(field, filterType, value);
     }
 
-    public getOptionTypeValue(): string {
+    public override getOptionTypeValue(): string {
         return this.field;
     }
 

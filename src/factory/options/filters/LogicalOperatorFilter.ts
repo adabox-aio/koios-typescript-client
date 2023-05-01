@@ -41,7 +41,7 @@ export class LogicalOperatorFilter extends Option {
         return new LogicalOperatorFilter(logicalOperatorFilterType, options);
     }
 
-    public getOptionTypeValue(): string {
+    public override getOptionTypeValue(): string {
         return this.logicalOperatorFilterType.toString().toLowerCase();
     }
 

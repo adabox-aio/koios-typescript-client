@@ -40,7 +40,7 @@ export class Options {
         }
         if (filters.length >= 2) {
             optionList.push(LogicalOperatorFilter.of(LogicalOperatorFilterType.AND, ...filters));
-        } else if (filters.length === 1) {
+        } else if (filters.length === 1 && filters[0]) {
             optionList.push(filters[0]);
         }
         return Object.fromEntries(optionList.map(option => [option.getOptionTypeValue(), option.getValue()]))

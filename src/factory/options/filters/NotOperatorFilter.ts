@@ -29,7 +29,7 @@ export class NotOperatorFilter extends Option {
         return new NotOperatorFilter(option);
     }
 
-    getOptionTypeValue(): string {
+    public override getOptionTypeValue(): string {
         if (this.option.getOptionType() === OptionType.LOGICAL_FILTER) {
             return `not.${this.option.getOptionTypeValue()}`;
         } else {
@@ -37,7 +37,7 @@ export class NotOperatorFilter extends Option {
         }
     }
 
-    getValue(): string {
+    public getValue(): string {
         if (this.option.getOptionType() === OptionType.LOGICAL_FILTER) {
             return this.option.getValue();
         } else {

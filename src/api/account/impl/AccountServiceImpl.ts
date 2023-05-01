@@ -89,7 +89,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         if (!options) {
             options = Options.builder().build()
         }
-        const body = this.buildBody("_stake_addresses", stakeAddresses)
+        const body: any = this.buildBody("_stake_addresses", stakeAddresses)
         if (firstOnly) {
             body["_first_only"] = firstOnly
         }

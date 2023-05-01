@@ -20,7 +20,7 @@ export class Custom extends Option {
         this.value = value
     }
 
-    public getOptionTypeValue(): string {
+    public override getOptionTypeValue(): string {
         return this.key;
     }
 

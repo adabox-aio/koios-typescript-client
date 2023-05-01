@@ -1,13 +1,11 @@
 {
-  "name": "@adabox/koios-typescript-client",
+  "name": "@adabox/koios-ts-client",
   "version": "1.0.0",
   "description": "Cardano REST Client library which allows interacting with The Cardano Blockchain.",
-  "main": "lib/index.ts",
   "files": [
     "lib/**/*.js",
     "lib/**/*.ts"
   ],
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

@@ -1,4 +1,4 @@
-import {BackendFactory} from "../factory/BackendFactory";
+import {BackendFactory} from "../index";
 import {describe, expect, test} from "vitest";
 
 const koiosMainnetService = BackendFactory.getKoiosMainnetService()

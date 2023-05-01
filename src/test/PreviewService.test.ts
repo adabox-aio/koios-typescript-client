@@ -1,13 +1,19 @@
-import {BackendFactory} from "../factory/BackendFactory";
+import {
+    BackendFactory,
+    Options,
+    Limit,
+    Offset,
+    Order,
+    Filter,
+    FilterType,
+    LogicalOperatorFilter,
+    LogicalOperatorFilterType,
+    NotOperatorFilter,
+    SortType,
+} from "../index";
+
 import {describe, expect, test} from "vitest";
-import {Options} from "../factory/options/Options";
-import {Limit} from "../factory/options/Limit";
-import {Offset} from "../factory/options/Offset";
-import {Order} from "../factory/options/Order";
-import SortType from "../factory/options/SortType";
-import {Filter, FilterType} from "../factory/options/filters/Filter";
-import {LogicalOperatorFilter, LogicalOperatorFilterType} from "../factory/options/filters/LogicalOperatorFilter";
-import {NotOperatorFilter} from "../factory/options/filters/NotOperatorFilter";
+
 
 const koiosPreviewService = BackendFactory.getKoiosPreviewService()
 const koiosNetworkService = koiosPreviewService.getNetworkService()

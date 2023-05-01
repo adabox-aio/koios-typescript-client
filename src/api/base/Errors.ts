@@ -10,6 +10,18 @@ export class KoiosHttpError extends Error {
         this.statusText = statusText
         this.url = url
     }
+
+    public getStatusCode(): number {
+        return this.statusCode
+    }
+
+    public getStatusText(): string {
+        return this.statusText
+    }
+
+    public getUrl(): string {
+        return this.url
+    }
 }
 
 export class KoiosTimeoutError extends Error {
@@ -19,5 +31,9 @@ export class KoiosTimeoutError extends Error {
     constructor(message: string, url: string) {
         super(message);
         this.url = url
+    }
+
+    public getUrl(): string {
+        return this.url
     }
 }
