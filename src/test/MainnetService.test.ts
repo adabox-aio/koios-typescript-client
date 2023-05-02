@@ -1,4 +1,4 @@
-import {BackendFactory} from "../index";
+import {BackendFactory, KoiosHttpError} from "../index";
 import {describe, expect, test} from "vitest";
 
 const koiosMainnetService = BackendFactory.getKoiosMainnetService()
@@ -105,6 +105,15 @@ describe("koiosTransactionsService", () => {
         console.log(result)
         expect(result).not.toBe(null)
     });
+    test("getTransactionInformationBadRequest", async () => {
+        try {
+            await koiosTransactionsService.getTransactionInformation(["abc"])
+        } catch (e) {
+            console.log(e)
+            expect(e).toBeInstanceOf(KoiosHttpError)
+            expect(e.statusCode).toBe(400)
+        }
+    });
     test("getTransactionUTxOs", async () => {
         const txHashes = [
             "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
@@ -130,8 +139,9 @@ describe("koiosTransactionsService", () => {
     });
     test("submitTransaction", async () => {
         const uint8 = new Uint8Array([0])
-        const result = await koiosTransactionsService.submitTransaction(uint8)
-        console.log(result)
+        let result
+        result = await koiosTransactionsService.submitTransaction(uint8)
+        expect(result).toBeInstanceOf(KoiosHttpError)
         expect(result).not.toBe(null)
         expect(result.statusCode).toBe(400)
     });

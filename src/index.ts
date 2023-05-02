@@ -13,6 +13,7 @@ import {Filter, FilterType} from "./factory/options/filters/Filter";
 import {LogicalOperatorFilter, LogicalOperatorFilterType} from "./factory/options/filters/LogicalOperatorFilter";
 import {NotOperatorFilter} from "./factory/options/filters/NotOperatorFilter";
 import {OperationType} from "./factory/OperationType";
+import {KoiosTimeoutError, KoiosHttpError} from "./api/base/Errors";
 
 export {
     BackendFactory,
@@ -31,5 +32,7 @@ export {
     LogicalOperatorFilter,
     LogicalOperatorFilterType,
     NotOperatorFilter,
-    SortType
+    SortType,
+    KoiosTimeoutError,
+    KoiosHttpError
 };

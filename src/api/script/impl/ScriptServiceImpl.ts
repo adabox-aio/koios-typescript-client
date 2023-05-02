@@ -13,7 +13,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
         return this.get(`native_script_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -23,7 +23,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
         return this.get(`plutus_script_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -37,7 +37,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
         return this.get(`script_redeemers${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -47,7 +47,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
         return this.post(`datum_info${this.optionsToQueryParams(options)}`, this.buildBody("_datum_hashes", datumHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

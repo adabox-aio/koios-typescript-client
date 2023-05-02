@@ -12,7 +12,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
         return this.get(`tip${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -22,7 +22,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
         return this.get(`genesis${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -38,7 +38,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
         return this.get(`totals${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -48,7 +48,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
         return this.get(`param_updates${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

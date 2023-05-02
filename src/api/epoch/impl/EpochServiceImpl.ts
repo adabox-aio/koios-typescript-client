@@ -21,7 +21,7 @@ export class EpochServiceImpl extends BaseService implements EpochService {
         return this.get(`epoch_info${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -37,7 +37,7 @@ export class EpochServiceImpl extends BaseService implements EpochService {
         return this.get(`epoch_params${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -53,7 +53,7 @@ export class EpochServiceImpl extends BaseService implements EpochService {
         return this.get(`epoch_block_protocols${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

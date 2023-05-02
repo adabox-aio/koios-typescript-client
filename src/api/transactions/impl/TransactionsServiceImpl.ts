@@ -15,7 +15,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.post(`tx_info${this.optionsToQueryParams(options)}`, this.buildBody("_tx_hashes", txHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -28,7 +28,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.post(`tx_utxos${this.optionsToQueryParams(options)}`, this.buildBody("_tx_hashes", txHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -41,7 +41,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.post(`tx_metadata${this.optionsToQueryParams(options)}`, this.buildBody("_tx_hashes", txHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -54,7 +54,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.get(`tx_metalabels${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -64,7 +64,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.post('submittx', transactionData)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(String(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(String(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -77,7 +77,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
         return this.post(`tx_status${this.optionsToQueryParams(options)}`, this.buildBody("_tx_hashes", txHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

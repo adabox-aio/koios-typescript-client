@@ -1,15 +1,16 @@
 // import {getLimiter} from "../../utils/limiter";
 // import Bottleneck from "bottleneck";
 import {Options} from "../../factory/options/Options";
-import fetch from "node-fetch";
+import fetch, {RequestInit, Response} from "node-fetch";
 import * as queryString from "querystring";
+import {KoiosTimeoutError} from "./Errors";
 
 export class BaseService {
 
     // private limiter: Bottleneck = getLimiter()
     private readonly retriesCount: number = 5
     private readonly baseUrl: string = ''
-    private timeoutMilliSec: number = this.getReadTimeoutSec() * 1000
+    private readonly timeoutMilliSec: number = 60
 
     public constructor(baseUrl?: string) {
         if (baseUrl) {
@@ -23,7 +24,7 @@ export class BaseService {
         if (strReadTimeoutSec && strReadTimeoutSec.trim() !== "") {
             readTimeoutSec = parseInt(strReadTimeoutSec);
         }
-        return readTimeoutSec >= 1 ? readTimeoutSec : 60;
+        return readTimeoutSec >= 1 ? readTimeoutSec : this.timeoutMilliSec;
     }
 
     private getMaxRetries(): number {
@@ -36,20 +37,24 @@ export class BaseService {
     }
 
     public get(url: string): Promise<any> {
-        return this.execute(this.baseUrl + url, "GET", this.getMaxRetries(), 1000, this.timeoutMilliSec)
+        let params: RequestInit = {
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "GET"
+        }
+
+        return this.execute(this.baseUrl + url, params,{ timeoutInSeconds: this.getReadTimeoutSec(), tries: this.getMaxRetries() });
     }
 
     public post(url: string, body: any): Promise<any> {
-        return this.execute(this.baseUrl + url, "POST", this.getMaxRetries(), 1000, this.timeoutMilliSec, body)
-    }
 
-    private execute(url: string, method: string, retries: number, retryDelay: number, timeout: number, body?: any): Promise<any> {
-
-        function resolveContentType(body: any) {
+        function resolveContentType(body: any): string {
             return (body && (body.constructor === String || body.constructor === Uint8Array)) ? 'application/cbor' : 'application/json'
         }
 
-        function resolveBody(body: any) {
+        function resolveBody(body: any): string | Buffer | null {
             if (!body) {
                 return null
             }
@@ -64,33 +69,45 @@ export class BaseService {
             }
         }
 
-        return new Promise((resolve, reject) => {
-            // check for timeout
-            if (timeout) setTimeout(() => reject('error: timeout'), timeout);
+        let params: RequestInit = {
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': resolveContentType(body)
+            },
+            method: "POST",
+            body: resolveBody(body)
+        }
 
-            const wrapper = (n: any) => {
-                fetch(url, {
-                    headers: {
-                        'accept': 'application/json',
-                        'Content-Type': resolveContentType(body)
-                    },
-                    method,
-                    body: resolveBody(body),
-                }).then(res => {
-                    resolve(res) // TODO Check Empty
-                }).catch(async (err) => {
-                    if (n > 0) {
-                        await this.delay(retryDelay);
-                        wrapper(--n);
-                    }
-                    else {
-                        reject(err);
-                    }
-                });
-            };
+        return this.execute(this.baseUrl + url, params,{ timeoutInSeconds: this.getReadTimeoutSec(), tries: this.getMaxRetries() });
+    }
 
-            wrapper(retries);
-        });
+    public async execute(url: string, init?: RequestInit, { timeoutInSeconds, tries } = { timeoutInSeconds: 10, tries: 3 }): Promise<Response> {
+        let response: Response;
+        let controller: AbortController;
+
+        for (let n = 0; n < tries; n++) {
+            let timeoutID;
+            try {
+                controller = new AbortController();
+                timeoutID = setTimeout(() => {
+                    controller.abort(); // break current loop
+                }, timeoutInSeconds * 1000);
+                response = await fetch(url, { ...init, signal: controller.signal });
+                clearTimeout(timeoutID);
+                return response;
+            } catch (error) {
+                if (timeoutID) {
+                    clearTimeout(timeoutID);
+                }
+                if (!(error instanceof DOMException)) {
+                    // Only catch abort exceptions here. All the others must be handled outside this function.
+                    throw error; // TODO KoiosHttpError ?
+                }
+            }
+        }
+
+        // None of the tries finished in time.
+        throw new KoiosTimeoutError(`Request timed out (tried it ${tries} times, but none finished within ${timeoutInSeconds} second(s)).`, url);
     }
 
     optionsToQueryParams(options?: Options): string {
@@ -100,10 +117,6 @@ export class BaseService {
             return `?${queryString.stringify(paramsMap)}`;
         }
         return ''
-    }
-
-    private async delay(ms: number) {
-        return new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
     }
 
     public buildBody(key: string, value: any, afterBlockHeight?: number, epochNo?: number) {

@@ -15,7 +15,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -28,7 +28,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_token_registry${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -45,7 +45,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_addresses${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -62,7 +62,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_nft_address${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -79,7 +79,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_info${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -92,7 +92,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.post(`asset_info${this.optionsToQueryParams(options)}`, this.buildBody("_asset_list", assets))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -109,7 +109,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_history${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -123,7 +123,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`policy_asset_addresses${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -137,7 +137,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`policy_asset_info${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -151,7 +151,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`policy_asset_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -168,7 +168,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_summary${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -191,7 +191,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         return this.get(`asset_txs${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

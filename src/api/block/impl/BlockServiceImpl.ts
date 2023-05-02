@@ -12,7 +12,7 @@ export class BlockServiceImpl extends BaseService implements BlockService {
         return this.get(`blocks${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -25,7 +25,7 @@ export class BlockServiceImpl extends BaseService implements BlockService {
         return this.post(`block_info${this.optionsToQueryParams(options)}`, this.buildBody("_block_hashes", blockHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -38,7 +38,7 @@ export class BlockServiceImpl extends BaseService implements BlockService {
         return this.post(`block_txs${this.optionsToQueryParams(options)}`, this.buildBody("_block_hashes", blockHashes))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

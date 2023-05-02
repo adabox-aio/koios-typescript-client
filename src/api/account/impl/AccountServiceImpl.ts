@@ -12,7 +12,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.get(`account_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -25,7 +25,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_info${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -39,7 +39,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.get(`account_utxos${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -52,7 +52,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_info_cached${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -65,7 +65,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_rewards${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -78,7 +78,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_updates${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -99,7 +99,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_addresses${this.optionsToQueryParams(options)}`, body)
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -112,7 +112,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_assets${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -125,7 +125,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         return this.post(`account_history${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

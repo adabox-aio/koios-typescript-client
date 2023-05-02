@@ -15,7 +15,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
         return this.post(`address_info${this.optionsToQueryParams(options)}`, this.buildBody("_addresses", addresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -28,7 +28,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
         return this.post(`address_txs${this.optionsToQueryParams(options)}`, this.buildBody("_addresses", addresses, afterBlockHeight))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -41,7 +41,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
         return this.post(`credential_utxos${this.optionsToQueryParams(options)}`, this.buildBody("_payment_credentials", paymentCredentials))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -54,7 +54,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
         return this.post(`address_assets${this.optionsToQueryParams(options)}`, this.buildBody("_addresses", addresses))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })
@@ -67,7 +67,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
         return this.post(`credential_txs${this.optionsToQueryParams(options)}`, this.buildBody("_payment_credentials", paymentCredentials, afterBlockHeight))
             .then(async response => {
                 if (!response.ok) {
-                    return new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
+                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
                 }
                 return response.json()
             })

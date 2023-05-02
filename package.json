@@ -1,6 +1,6 @@
 {
   "name": "@adabox/koios-ts-client",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cardano REST Client library which allows interacting with The Cardano Blockchain.",
   "files": [
     "dist/**/*.js",

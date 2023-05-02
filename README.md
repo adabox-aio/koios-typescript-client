@@ -329,6 +329,11 @@ $ npm i @adabox/koios-ts-client
 
 ## Usage
 
+### Import
+```ts
+import {BackendFactory} from "@adabox/koios-ts-client"
+```
+
 ### Get Koios Backend Service
 - Mainnet
 ```ts
@@ -370,6 +375,23 @@ const options = Options.builder()
 
 const result = await koiosAddressService.getAddressTransactions(addresses, undefined, options)
 console.log(result)
+```
+
+### Error Handling
+Koios TypeScript Client throws 2 types of errors,KoiosHttpError and KoiosTimeoutError. Each of these errors is extended from the built-in Error class, allowing you to properly catch it and handle it in your code.
+
+```ts
+import {KoiosHttpError, KoiosTimeoutError} from "@adabox/koios-ts-client";
+
+try {
+  const result = await koiosTransactionsService.getTransactionInformation(["abc"])
+} catch (error) {
+  if (error instanceof KoiosHttpError || error instanceof KoiosTimeoutError) {
+    console.log(error) // Koios Error
+  } else {
+      throw error // rethrow other errors
+  }
+}
 ```
 
 ## Supported Environment Variables
