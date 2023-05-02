@@ -9,7 +9,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class ScriptServiceImpl extends BaseService implements ScriptService {
 
-    getNativeScriptList(options?: Options): Promise<any> {
+    getNativeScriptList(options?: Options): Promise<Response> {
         return this.get(`native_script_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -19,7 +19,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
             })
     }
 
-    getPlutusScriptList(options?: Options): Promise<any> {
+    getPlutusScriptList(options?: Options): Promise<Response> {
         return this.get(`plutus_script_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -29,7 +29,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
             })
     }
 
-    getScriptRedeemers(scriptHash:string, options?:Options): Promise<any> {
+    getScriptRedeemers(scriptHash:string, options?:Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -43,7 +43,7 @@ export class ScriptServiceImpl extends BaseService implements ScriptService {
             })
     }
 
-    getDatumInformation(datumHashes: string[], options?: Options): Promise<any> {
+    getDatumInformation(datumHashes: string[], options?: Options): Promise<Response> {
         return this.post(`datum_info${this.optionsToQueryParams(options)}`, this.buildBody("_datum_hashes", datumHashes))
             .then(async response => {
                 if (!response.ok) {

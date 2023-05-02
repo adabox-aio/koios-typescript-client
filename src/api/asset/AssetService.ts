@@ -16,7 +16,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of policy IDs and asset names
      */
-    getAssetList(options?: Options): Promise<any>;
+    getAssetList(options?: Options): Promise<Response>;
 
     /**
      * Asset Token Registry
@@ -29,7 +29,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of token registry information for each asset
      */
-    getAssetTokenRegistry(options?: Options): Promise<any>;
+    getAssetTokenRegistry(options?: Options): Promise<Response>;
 
     /**
      * Asset Addresses
@@ -44,7 +44,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of payment addresses holding the given token (including balances)
      */
-    getAssetAddresses(assetPolicy: string, assetName?: string, options?: Options): Promise<any>;
+    getAssetAddresses(assetPolicy: string, assetName?: string, options?: Options): Promise<Response>;
 
     /**
      * NFT Address
@@ -59,7 +59,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Payment addresses currently holding the given NFT
      */
-    getNFTAddress(assetPolicy: string, assetName?: string, options?: Options): Promise<any>;
+    getNFTAddress(assetPolicy: string, assetName?: string, options?: Options): Promise<Response>;
 
     /**
      * Asset Information
@@ -74,7 +74,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed asset information
      */
-    getAssetInformation(assetPolicy: string, assetName?: string, options?: Options): Promise<any>;
+    getAssetInformation(assetPolicy: string, assetName?: string, options?: Options): Promise<Response>;
 
     /**
      * Asset Information (Bulk)
@@ -88,7 +88,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed asset information
      */
-    getAssetInformationBulk(assets: [string, string][], options?: Options): Promise<any>;
+    getAssetInformationBulk(assets: [string, string][], options?: Options): Promise<Response>;
 
     /**
      * Asset History
@@ -103,7 +103,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of asset mint/burn history
      */
-    getAssetHistory(assetPolicy: string, assetName?: string, options?: Options): Promise<any>;
+    getAssetHistory(assetPolicy: string, assetName?: string, options?: Options): Promise<Response>;
 
     /**
      * Policy Asset Address List
@@ -117,7 +117,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of asset names and payment addresses for the given policy (including balances)
      */
-    getPolicyAssetAddressList(assetPolicy: string, options?: Options): Promise<any>;
+    getPolicyAssetAddressList(assetPolicy: string, options?: Options): Promise<Response>;
 
     /**
      * Policy Asset Information
@@ -131,7 +131,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed information of assets under the same policy
      */
-    getPolicyAssetInformation(assetPolicy: string, options?: Options): Promise<any>;
+    getPolicyAssetInformation(assetPolicy: string, options?: Options): Promise<Response>;
 
     /**
      * Policy Asset List
@@ -145,7 +145,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed information of assets under the same policy
      */
-    getPolicyAssetList(assetPolicy: string, options?: Options): Promise<any>;
+    getPolicyAssetList(assetPolicy: string, options?: Options): Promise<Response>;
 
     /**
      * Asset Summary
@@ -160,7 +160,7 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of asset summary information
      */
-    getAssetSummary(assetPolicy: string, assetName?: string, options?: Options): Promise<any>;
+    getAssetSummary(assetPolicy: string, assetName?: string, options?: Options): Promise<Response>;
 
     /**
      * Asset Transactions
@@ -177,5 +177,5 @@ export interface AssetService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of Tx hashes that included the given asset
      */
-    getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options?: Options): Promise<any>;
+    getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options?: Options): Promise<Response>;
 }

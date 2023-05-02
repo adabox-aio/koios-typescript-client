@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class TransactionsServiceImpl extends BaseService implements TransactionsService {
 
-    getTransactionInformation(txHashes: string[], options?: Options): Promise<any> {
+    getTransactionInformation(txHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -21,7 +21,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
             })
     }
 
-    getTransactionUTxOs(txHashes: string[], options?: Options): Promise<any> {
+    getTransactionUTxOs(txHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -34,7 +34,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
             })
     }
 
-    getTransactionMetadata(txHashes: string[], options?: Options): Promise<any> {
+    getTransactionMetadata(txHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -47,7 +47,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
             })
     }
 
-    getTransactionMetadataLabels(options?: Options): Promise<any> {
+    getTransactionMetadataLabels(options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -60,7 +60,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
             })
     }
 
-    submitTransaction(transactionData: Uint8Array | string): Promise<any> {
+    submitTransaction(transactionData: Uint8Array | string): Promise<Response> {
         return this.post('submittx', transactionData)
             .then(async response => {
                 if (!response.ok) {
@@ -70,7 +70,7 @@ export class TransactionsServiceImpl extends BaseService implements Transactions
             })
     }
 
-    getTransactionStatus(txHashes: string[], options?: Options): Promise<any> {
+    getTransactionStatus(txHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

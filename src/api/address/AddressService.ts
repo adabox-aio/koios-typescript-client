@@ -17,7 +17,7 @@ export interface AddressService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of address information
      */
-    getAddressInformation(addresses: string[], options?: Options): Promise<any>;
+    getAddressInformation(addresses: string[], options?: Options): Promise<Response>;
 
     /**
      * Address Transactions
@@ -32,7 +32,7 @@ export interface AddressService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of transaction hashes
      */
-    getAddressTransactions(addresses: string[], afterBlockHeight?: number, options?: Options): Promise<any>;
+    getAddressTransactions(addresses: string[], afterBlockHeight?: number, options?: Options): Promise<Response>;
 
     /**
      * UTxOs from payment credentials
@@ -46,7 +46,7 @@ export interface AddressService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of UTxOs with balances
      */
-    getCredentialUTxOs(paymentCredentials: string[], options?: Options): Promise<any>;
+    getCredentialUTxOs(paymentCredentials: string[], options?: Options): Promise<Response>;
 
     /**
      * Address Assets
@@ -60,7 +60,7 @@ export interface AddressService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of address-owned assets
      */
-    getAddressAssets(addresses: string[], options?: Options): Promise<any>;
+    getAddressAssets(addresses: string[], options?: Options): Promise<Response>;
 
     /**
      * Transactions from payment credentials
@@ -75,5 +75,5 @@ export interface AddressService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of transaction hashes
      */
-    getCredentialsTxs(paymentCredentials: string[], afterBlockHeight?: number, options?: Options): Promise<any>;
+    getCredentialsTxs(paymentCredentials: string[], afterBlockHeight?: number, options?: Options): Promise<Response>;
 }
