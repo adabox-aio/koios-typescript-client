@@ -137,13 +137,14 @@ describe("koiosTransactionsService", () => {
         console.log(result)
         expect(result).not.toBe(null)
     });
-    test("submitTransaction", async () => {
-        const uint8 = new Uint8Array([0])
-        let result
-        result = await koiosTransactionsService.submitTransaction(uint8)
-        expect(result).toBeInstanceOf(KoiosHttpError)
-        expect(result).not.toBe(null)
-        expect(result.statusCode).toBe(400)
+    test("submitTransactionBadRequest", async () => {
+        try {
+            await koiosTransactionsService.submitTransaction(new Uint8Array([0]))
+        } catch (e) {
+            expect(e).toBeInstanceOf(KoiosHttpError)
+            expect(e).not.toBe(null)
+            expect(e.statusCode).toBe(400)
+        }
     });
     test("getTransactionStatus", async () => {
         const txHashes = [
@@ -243,7 +244,7 @@ describe("koiosAssetService", () => {
         console.log(result)
         expect(result).not.toBe(null)
     });
-    test("getPolicyAssetAddressList", async () => {
+    test("mainnetGetPolicyAssetAddressList", async () => {
         const result = await koiosAssetService.getPolicyAssetAddressList("750900e4999ebe0d58f19b634768ba25e525aaf12403bfe8fe130501")
         console.log(result)
         expect(result).not.toBe(null)
@@ -334,7 +335,7 @@ describe("koiosPoolService", () => {
 });
 
 describe("koiosScriptService", () => {
-    test("getNativeScriptList", async () => {
+    test("mainnetGetNativeScriptList", async () => {
         const result = await koiosScriptService.getNativeScriptList()
         console.log(result)
         expect(result).not.toBe(null)

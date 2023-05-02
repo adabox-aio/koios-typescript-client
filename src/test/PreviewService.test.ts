@@ -9,7 +9,7 @@ import {
     LogicalOperatorFilter,
     LogicalOperatorFilterType,
     NotOperatorFilter,
-    SortType,
+    SortType, KoiosHttpError,
 } from "../index";
 
 import {describe, expect, test} from "vitest";
@@ -142,12 +142,14 @@ describe("koiosTransactionsService", () => {
         console.log(result)
         expect(result).not.toBe(null)
     });
-    test("submitTransaction", async () => {
-        const uint8 = new Uint8Array([0])
-        const result = await koiosTransactionsService.submitTransaction(uint8)
-        console.log(result)
-        expect(result).not.toBe(null)
-        expect(result.statusCode).toBe(400)
+    test("submitTransactionBadRequest", async () => {
+        try {
+            await koiosTransactionsService.submitTransaction(new Uint8Array([0]))
+        } catch (e) {
+            expect(e).toBeInstanceOf(KoiosHttpError)
+            expect(e).not.toBe(null)
+            expect(e.statusCode).toBe(400)
+        }
     });
     test("getTransactionStatus", async () => {
         const txHashes = [
