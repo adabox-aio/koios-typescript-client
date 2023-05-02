@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class EpochServiceImpl extends BaseService implements EpochService {
 
-    getEpochInformation(epochNo?: number, includeNextEpoch?: boolean, options?: Options): Promise<any> {
+    getEpochInformation(epochNo?: number, includeNextEpoch?: boolean, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -27,7 +27,7 @@ export class EpochServiceImpl extends BaseService implements EpochService {
             })
     }
 
-    getEpochProtocolParameters(epochNo?: number, options?: Options): Promise<any> {
+    getEpochProtocolParameters(epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -43,7 +43,7 @@ export class EpochServiceImpl extends BaseService implements EpochService {
             })
     }
 
-    getEpochBlockProtocols(epochNo?: number, options?: Options): Promise<any> {
+    getEpochBlockProtocols(epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

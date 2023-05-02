@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class NetworkServiceImpl extends BaseService implements NetworkService {
 
-    public getChainTip(options?: Options): Promise<any> {
+    public getChainTip(options?: Options): Promise<Response> {
         return this.get(`tip${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -18,7 +18,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
             })
     }
 
-    public getGenesisInfo(options?: Options): Promise<any> {
+    public getGenesisInfo(options?: Options): Promise<Response> {
         return this.get(`genesis${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -28,7 +28,7 @@ export class NetworkServiceImpl extends BaseService implements NetworkService {
             })
     }
 
-    public getHistoricalTokenomicStatsByEpoch(epochNo?: number, options?: Options): Promise<any> {
+    public getHistoricalTokenomicStatsByEpoch(epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

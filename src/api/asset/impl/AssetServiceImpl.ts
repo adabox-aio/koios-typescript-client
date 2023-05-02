@@ -2,13 +2,14 @@ import {BaseService} from "../../base/BaseService";
 import {AssetService} from "../AssetService";
 import {Options} from "../../../factory/options/Options";
 import {KoiosHttpError} from "../../base/Errors";
+import {Response} from "node-fetch";
 
 /**
  * Address Service Implementation
  */
 export class AssetServiceImpl extends BaseService implements AssetService {
 
-    getAssetList(options?: Options): Promise<any> {
+    getAssetList(options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -21,7 +22,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetTokenRegistry(options?: Options): Promise<any> {
+    getAssetTokenRegistry(options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -34,7 +35,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetAddresses(assetPolicy: string, assetName?: string, options?: Options): Promise<any> {
+    getAssetAddresses(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -51,7 +52,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getNFTAddress(assetPolicy: string, assetName?: string, options?: Options): Promise<any> {
+    getNFTAddress(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -68,7 +69,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetInformation(assetPolicy: string, assetName?: string, options?: Options): Promise<any> {
+    getAssetInformation(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -85,7 +86,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetInformationBulk(assets: [string, string][], options?: Options): Promise<any> {
+    getAssetInformationBulk(assets: [string, string][], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -98,7 +99,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetHistory(assetPolicy: string, assetName?: string, options?: Options): Promise<any> {
+    getAssetHistory(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -115,7 +116,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getPolicyAssetAddressList(assetPolicy: string, options?: Options): Promise<any> {
+    getPolicyAssetAddressList(assetPolicy: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -129,7 +130,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getPolicyAssetInformation(assetPolicy: string, options?: Options): Promise<any> {
+    getPolicyAssetInformation(assetPolicy: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -143,7 +144,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getPolicyAssetList(assetPolicy: string, options?: Options): Promise<any> {
+    getPolicyAssetList(assetPolicy: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -157,7 +158,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetSummary(assetPolicy: string, assetName?: string, options?: Options): Promise<any> {
+    getAssetSummary(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -174,7 +175,7 @@ export class AssetServiceImpl extends BaseService implements AssetService {
             })
     }
 
-    getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options?: Options): Promise<any> {
+    getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

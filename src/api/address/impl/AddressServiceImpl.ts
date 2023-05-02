@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class AddressServiceImpl extends BaseService implements AddressService {
 
-    getAddressInformation(addresses: string[], options?: Options): Promise<any> {
+    getAddressInformation(addresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -21,7 +21,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
             })
     }
 
-    getAddressTransactions(addresses: string[], afterBlockHeight?: number, options?: Options): Promise<any> {
+    getAddressTransactions(addresses: string[], afterBlockHeight?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -34,7 +34,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
             })
     }
 
-    getCredentialUTxOs(paymentCredentials: string[], options?: Options): Promise<any> {
+    getCredentialUTxOs(paymentCredentials: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -47,7 +47,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
             })
     }
 
-    getAddressAssets(addresses: string[], options?: Options): Promise<any> {
+    getAddressAssets(addresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -60,7 +60,7 @@ export class AddressServiceImpl extends BaseService implements AddressService {
             })
     }
 
-    getCredentialsTxs(paymentCredentials: string[], afterBlockHeight?: number, options?: Options): Promise<any> {
+    getCredentialsTxs(paymentCredentials: string[], afterBlockHeight?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

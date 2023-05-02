@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class AccountServiceImpl extends BaseService implements AccountService {
 
-    getAccountList(options?: Options): Promise<any> {
+    getAccountList(options?: Options): Promise<Response> {
         return this.get(`account_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -18,7 +18,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountInformation(stakeAddresses: string[], options?: Options): Promise<any> {
+    getAccountInformation(stakeAddresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -31,7 +31,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountUTxOs(stakeAddress: string, options?: Options): Promise<any> {
+    getAccountUTxOs(stakeAddress: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -45,7 +45,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountInformationCached(stakeAddresses: string[], options?: Options): Promise<any> {
+    getAccountInformationCached(stakeAddresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -58,7 +58,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountRewards(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<any> {
+    getAccountRewards(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -71,7 +71,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountUpdates(stakeAddresses: string[], options?: Options): Promise<any> {
+    getAccountUpdates(stakeAddresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -85,7 +85,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
     }
 
 
-    getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options?: Options): Promise<any> {
+    getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -105,7 +105,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountAssets(stakeAddresses: string[], options?: Options): Promise<any> {
+    getAccountAssets(stakeAddresses: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -118,7 +118,7 @@ export class AccountServiceImpl extends BaseService implements AccountService {
             })
     }
 
-    getAccountHistory(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<any> {
+    getAccountHistory(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

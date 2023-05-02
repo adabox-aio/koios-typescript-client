@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class BlockServiceImpl extends BaseService implements BlockService {
 
-    getBlockList(options?: Options): Promise<any> {
+    getBlockList(options?: Options): Promise<Response> {
         return this.get(`blocks${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -18,7 +18,7 @@ export class BlockServiceImpl extends BaseService implements BlockService {
             })
     }
 
-    getBlockInformation(blockHashes: string[], options?: Options): Promise<any> {
+    getBlockInformation(blockHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -31,7 +31,7 @@ export class BlockServiceImpl extends BaseService implements BlockService {
             })
     }
 
-    getBlockTransactions(blockHashes: string[], options?: Options): Promise<any> {
+    getBlockTransactions(blockHashes: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

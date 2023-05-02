@@ -36,10 +36,10 @@ export class BaseService {
         return maxRetries >= 1 ? maxRetries : this.retriesCount;
     }
 
-    public get(url: string): Promise<any> {
+    public get(url: string): Promise<Response> {
         let params: RequestInit = {
             headers: {
-                'accept': 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             method: "GET"
@@ -48,7 +48,7 @@ export class BaseService {
         return this.execute(this.baseUrl + url, params,{ timeoutInSeconds: this.getReadTimeoutSec(), tries: this.getMaxRetries() });
     }
 
-    public post(url: string, body: any): Promise<any> {
+    public post(url: string, body: any): Promise<Response> {
 
         function resolveContentType(body: any): string {
             return (body && (body.constructor === String || body.constructor === Uint8Array)) ? 'application/cbor' : 'application/json'

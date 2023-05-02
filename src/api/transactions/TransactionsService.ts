@@ -14,7 +14,7 @@ export interface TransactionsService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed information about transaction(s)
      */
-    getTransactionInformation(txHashes: string[], options?: Options): Promise<any>;
+    getTransactionInformation(txHashes: string[], options?: Options): Promise<Response>;
 
     /**
      * Transaction UTxOs
@@ -28,7 +28,7 @@ export interface TransactionsService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of inputs and outputs for given transaction(s)
      */
-    getTransactionUTxOs(txHashes: string[], options?: Options): Promise<any>;
+    getTransactionUTxOs(txHashes: string[], options?: Options): Promise<Response>;
 
     /**
      * Transaction Metadata
@@ -42,7 +42,7 @@ export interface TransactionsService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of metadata information present in each of the transactions queried
      */
-    getTransactionMetadata(txHashes: string[], options?: Options): Promise<any>;
+    getTransactionMetadata(txHashes: string[], options?: Options): Promise<Response>;
 
     /**
      * Transaction Metadata Labels
@@ -55,7 +55,7 @@ export interface TransactionsService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of known metadata labels
      */
-    getTransactionMetadataLabels(options?: Options): Promise<any>;
+    getTransactionMetadataLabels(options?: Options): Promise<Response>;
 
     /**
      * Submit Transaction
@@ -65,7 +65,7 @@ export interface TransactionsService {
      *
      * @return Transaction Id (hex)
      */
-    submitTransaction(transactionData: Uint8Array | string): Promise<any>;
+    submitTransaction(transactionData: Uint8Array | string): Promise<Response>;
 
     /**
      * Transaction Status (Block Confirmations)
@@ -79,5 +79,5 @@ export interface TransactionsService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of transaction confirmation counts
      */
-    getTransactionStatus(txHashes: string[], options?: Options): Promise<any>;
+    getTransactionStatus(txHashes: string[], options?: Options): Promise<Response>;
 }

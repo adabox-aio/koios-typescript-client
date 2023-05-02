@@ -8,7 +8,7 @@ import {KoiosHttpError} from "../../base/Errors";
  */
 export class PoolServiceImpl extends BaseService implements PoolService {
 
-    getPoolList(options?: Options): Promise<any> {
+    getPoolList(options?: Options): Promise<Response> {
         return this.get(`pool_list${this.optionsToQueryParams(options)}`)
             .then(async response => {
                 if (!response.ok) {
@@ -18,7 +18,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolInformation(poolBech32Ids: string[], options?: Options): Promise<any> {
+    getPoolInformation(poolBech32Ids: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -31,7 +31,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolStakeSnapshot(poolBech32: string, options?: Options): Promise<any> {
+    getPoolStakeSnapshot(poolBech32: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -45,7 +45,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolDelegatorsList(poolBech32: string, options?: Options): Promise<any> {
+    getPoolDelegatorsList(poolBech32: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -59,7 +59,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<any> {
+    getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -76,7 +76,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolBlocks(poolBech32: string, epochNo?: number, options?: Options): Promise<any> {
+    getPoolBlocks(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -93,7 +93,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<any> {
+    getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -110,7 +110,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolUpdatesHistory(poolBech32: string, options?: Options): Promise<any> {
+    getPoolUpdatesHistory(poolBech32: string, options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -124,7 +124,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolRelays(options?: Options): Promise<any> {
+    getPoolRelays(options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }
@@ -137,7 +137,7 @@ export class PoolServiceImpl extends BaseService implements PoolService {
             })
     }
 
-    getPoolMetadata(poolBech32Ids: string[], options?: Options): Promise<any> {
+    getPoolMetadata(poolBech32Ids: string[], options?: Options): Promise<Response> {
         if (!options) {
             options = Options.builder().build()
         }

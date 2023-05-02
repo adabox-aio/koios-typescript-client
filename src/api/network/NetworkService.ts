@@ -13,7 +13,7 @@ export interface NetworkService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of block summary (limit+paginated)
      */
-    getChainTip(options?: Options): Promise<any>;
+    getChainTip(options?: Options): Promise<Response>;
 
     /**
      * Get Genesis info
@@ -26,7 +26,7 @@ export interface NetworkService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of genesis parameters used to start each era on chain
      */
-    getGenesisInfo(options?: Options): Promise<any>;
+    getGenesisInfo(options?: Options): Promise<Response>;
 
     /**
      * Get historical tokenomic stats By Epoch
@@ -40,7 +40,7 @@ export interface NetworkService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of supply/reserves/utxo/fees/treasury stats
      */
-    getHistoricalTokenomicStatsByEpoch(epochNo?: number, options?: Options): Promise<any>;
+    getHistoricalTokenomicStatsByEpoch(epochNo?: number, options?: Options): Promise<Response>;
 
     /**
      * Param Update Proposals
@@ -53,5 +53,5 @@ export interface NetworkService {
      * @param options Filtering and Pagination options (optional)
      * @returns Array of unique param update proposals submitted on chain
      */
-    getParamUpdateProposals(options?: Options): Promise<any>;
+    getParamUpdateProposals(options?: Options): Promise<Response>;
 }

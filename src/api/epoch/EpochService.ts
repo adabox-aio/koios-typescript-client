@@ -18,7 +18,7 @@ export interface EpochService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed summary for each epoch
      */
-    getEpochInformation(epochNo?: number, includeNextEpoch?: boolean, options?: Options): Promise<any>;
+    getEpochInformation(epochNo?: number, includeNextEpoch?: boolean, options?: Options): Promise<Response>;
 
     /**
      * Epoch's Protocol Parameters
@@ -32,7 +32,7 @@ export interface EpochService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of protocol parameters for each epoch
      */
-    getEpochProtocolParameters(epochNo?: number, options?: Options): Promise<any>;
+    getEpochProtocolParameters(epochNo?: number, options?: Options): Promise<Response>;
 
     /**
      * Epoch's Block Protocols
@@ -46,5 +46,5 @@ export interface EpochService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of distinct block protocol versions counts in epoch
      */
-    getEpochBlockProtocols(epochNo?: number, options?: Options): Promise<any>;
+    getEpochBlockProtocols(epochNo?: number, options?: Options): Promise<Response>;
 }
