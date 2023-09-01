@@ -13,7 +13,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool IDs and tickers
      */
-    getPoolList(options?: Options): Promise<Response>;
+    getPoolList(options?: Options): Promise<any>;
 
     /**
      * Pool Information
@@ -27,7 +27,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool information
      */
-    getPoolInformation(poolBech32Ids: string[], options?: Options): Promise<Response>;
+    getPoolInformation(poolBech32Ids: string[], options?: Options): Promise<any>;
 
     /**
      * Pool Stake Snapshot
@@ -41,7 +41,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool stake information for 3 snapshots
      */
-    getPoolStakeSnapshot(poolBech32: string, options?: Options): Promise<Response>;
+    getPoolStakeSnapshot(poolBech32: string, options?: Options): Promise<any>;
 
     /**
      * Pool Delegators List
@@ -55,7 +55,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool delegator information
      */
-    getPoolDelegatorsList(poolBech32: string, options?: Options): Promise<Response>;
+    getPoolDelegatorsList(poolBech32: string, options?: Options): Promise<any>;
 
     /**
      * Pool Delegators History
@@ -70,7 +70,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool delegator information
      */
-    getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response>;
+    getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<any>;
 
     /**
      * Pool Blocks
@@ -85,7 +85,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of blocks created by pool
      */
-    getPoolBlocks(poolBech32: string, epochNo?: number, options?: Options): Promise<Response>;
+    getPoolBlocks(poolBech32: string, epochNo?: number, options?: Options): Promise<any>;
 
     /**
      * Pool Stake, Block and Reward History
@@ -100,7 +100,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool history information
      */
-    getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response>;
+    getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<any>;
 
     /**
      * Pool Updates (History)
@@ -114,7 +114,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of historical pool updates
      */
-    getPoolUpdatesHistory(poolBech32: string, options?: Options): Promise<Response>;
+    getPoolUpdatesHistory(poolBech32: string, options?: Options): Promise<any>;
 
     /**
      * Pool Relays
@@ -127,7 +127,7 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool relay information
      */
-    getPoolRelays(options?: Options): Promise<Response>;
+    getPoolRelays(options?: Options): Promise<any>;
 
     /**
      * Pool Metadata
@@ -141,5 +141,5 @@ export interface PoolService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of pool metadata
      */
-    getPoolMetadata(poolBech32Ids: string[], options?: Options): Promise<Response>;
+    getPoolMetadata(poolBech32Ids: string[], options?: Options): Promise<any>;
 }

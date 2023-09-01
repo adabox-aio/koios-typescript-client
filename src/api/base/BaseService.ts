@@ -1,16 +1,13 @@
 // import {getLimiter} from "../../utils/limiter";
 // import Bottleneck from "bottleneck";
-import {Options} from "../../factory/options/Options";
-import fetch, {RequestInit, Response} from "node-fetch";
+import { Options } from "../../factory/options/Options";
 import * as queryString from "querystring";
-import {KoiosTimeoutError} from "./Errors";
+import {KoiosHttpError, KoiosTimeoutError} from "./Errors";
 
 export class BaseService {
 
     // private limiter: Bottleneck = getLimiter()
-    private readonly retriesCount: number = 5
     private readonly baseUrl: string = ''
-    private readonly timeoutMilliSec: number = 60
 
     public constructor(baseUrl?: string) {
         if (baseUrl) {
@@ -19,12 +16,12 @@ export class BaseService {
     }
 
     private getReadTimeoutSec(): number {
-        let readTimeoutSec = 60;
+        let readTimeoutSec = 300;
         const strReadTimeoutSec: string | undefined = process.env['KOIOS_READ_TIMEOUT_SEC'];
         if (strReadTimeoutSec && strReadTimeoutSec.trim() !== "") {
             readTimeoutSec = parseInt(strReadTimeoutSec);
         }
-        return readTimeoutSec >= 1 ? readTimeoutSec : this.timeoutMilliSec;
+        return readTimeoutSec >= 1 ? readTimeoutSec : 300;
     }
 
     private getMaxRetries(): number {
@@ -33,68 +30,80 @@ export class BaseService {
         if (strMaxRetries && strMaxRetries.trim() !== "") {
             maxRetries = parseInt(strMaxRetries);
         }
-        return maxRetries >= 1 ? maxRetries : this.retriesCount;
+        return maxRetries >= 1 ? maxRetries : 5;
     }
 
-    public get(url: string): Promise<Response> {
-        let params: RequestInit = {
+    public async get(url: string): Promise<any> {
+        const params: RequestInit = {
             headers: {
-                'Accept': 'application/json',
+                Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
             method: "GET"
         }
 
-        return this.execute(this.baseUrl + url, params,{ timeoutInSeconds: this.getReadTimeoutSec(), tries: this.getMaxRetries() });
+        return await this.execute(this.baseUrl + url, params, {
+            timeoutInSeconds: this.getReadTimeoutSec(),
+            tries: this.getMaxRetries()
+        });
     }
 
-    public post(url: string, body: any): Promise<Response> {
+    public async post(url: string, body: any): Promise<any> {
 
-        function resolveContentType(body: any): string {
-            return (body && (body.constructor === String || body.constructor === Uint8Array)) ? 'application/cbor' : 'application/json'
+        function resolveContentType(requestBody: any): string {
+            return (requestBody && (requestBody.constructor === String || requestBody.constructor === Uint8Array)) ? 'application/cbor' : 'application/json'
         }
 
-        function resolveBody(body: any): string | Buffer | null {
-            if (!body) {
+        function resolveBody(requestBody: any): string | Buffer | null {
+            if (!requestBody) {
                 return null
             }
-            if (body.constructor === String) {
-                return Buffer.from(body, 'hex');
+            if (requestBody.constructor === String) {
+                return Buffer.from(requestBody, 'hex');
             }
-            else if (body.constructor === Uint8Array) {
-                return Buffer.from(body);
+            else if (requestBody.constructor === Uint8Array) {
+                return Buffer.from(requestBody);
             }
             else {
-                return JSON.stringify(body)
+                return JSON.stringify(requestBody)
             }
         }
 
-        let params: RequestInit = {
+        const params: RequestInit = {
             headers: {
-                'accept': 'application/json',
+                Accept: 'application/json',
                 'Content-Type': resolveContentType(body)
             },
             method: "POST",
             body: resolveBody(body)
         }
 
-        return this.execute(this.baseUrl + url, params,{ timeoutInSeconds: this.getReadTimeoutSec(), tries: this.getMaxRetries() });
+        return await this.execute(this.baseUrl + url, params, {
+            timeoutInSeconds: this.getReadTimeoutSec(),
+            tries: this.getMaxRetries()
+        });
     }
 
-    public async execute(url: string, init?: RequestInit, { timeoutInSeconds, tries } = { timeoutInSeconds: 10, tries: 3 }): Promise<Response> {
-        let response: Response;
+    public async execute(url: string, init?: RequestInit, {timeoutInSeconds, tries} = {
+        timeoutInSeconds: 10,
+        tries: 3
+    }): Promise<any> {
         let controller: AbortController;
+        let response: Response;
+        let timeoutID;
 
         for (let n = 0; n < tries; n++) {
-            let timeoutID;
             try {
                 controller = new AbortController();
                 timeoutID = setTimeout(() => {
                     controller.abort(); // break current loop
                 }, timeoutInSeconds * 1000);
-                response = await fetch(url, { ...init, signal: controller.signal });
+                response = await fetch(url, {...init, signal: controller.signal});
                 clearTimeout(timeoutID);
-                return response;
+                if (!response.ok) {
+                    return new KoiosHttpError(await response.text(), response.status, response.statusText, response.url)
+                }
+                return await response.json()
             } catch (error) {
                 if (timeoutID) {
                     clearTimeout(timeoutID);
@@ -119,7 +128,7 @@ export class BaseService {
         return ''
     }
 
-    public buildBody(key: string, value: any, afterBlockHeight?: number, epochNo?: number) {
+    public buildBody(key: string, value: any, afterBlockHeight?: number, epochNo?: number): any {
         const obj: any = {}
         obj[key] = value
         if (afterBlockHeight) {

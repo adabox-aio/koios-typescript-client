@@ -16,7 +16,7 @@ export interface BlockService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of block information
      */
-    getBlockList(options?: Options): Promise<Response>;
+    getBlockList(options?: Options): Promise<any>;
 
     /**
      * Block Information
@@ -30,7 +30,7 @@ export interface BlockService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of detailed block information
      */
-    getBlockInformation(blockHashes: string[], options?: Options): Promise<Response>;
+    getBlockInformation(blockHashes: string[], options?: Options): Promise<any>;
 
     /**
      * Block Transactions
@@ -44,5 +44,5 @@ export interface BlockService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of transactions hashes
      */
-    getBlockTransactions(blockHashes: string[], options?: Options): Promise<Response>;
+    getBlockTransactions(blockHashes: string[], options?: Options): Promise<any>;
 }

@@ -1,184 +1,80 @@
-import {BaseService} from "../../base/BaseService";
-import {AssetService} from "../AssetService";
-import {Options} from "../../../factory/options/Options";
-import {KoiosHttpError} from "../../base/Errors";
-import {Response} from "node-fetch";
+import { BaseService } from "../../base/BaseService";
+import { AssetService } from "../AssetService";
+import { Options } from "../../../factory/options/Options";
 
 /**
  * Address Service Implementation
  */
 export class AssetServiceImpl extends BaseService implements AssetService {
 
-    getAssetList(options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.get(`asset_list${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAssetList(options: Options = Options.builder().build()): Promise<any> {
+        return await this.get(`asset_list${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetTokenRegistry(options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.get(`asset_token_registry${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAssetTokenRegistry(options: Options = Options.builder().build()): Promise<any> {
+        return await this.get(`asset_token_registry${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetAddresses(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAssetAddresses(assetPolicy: string, assetName?: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
         }
-        return this.get(`asset_addresses${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_addresses${this.optionsToQueryParams(options)}`);
     }
 
-    getNFTAddress(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getNFTAddress(assetPolicy: string, assetName?: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
         }
-        return this.get(`asset_nft_address${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_nft_address${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetInformation(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAssetInformation(assetPolicy: string, assetName?: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
         }
-        return this.get(`asset_info${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_info${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetInformationBulk(assets: [string, string][], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`asset_info${this.optionsToQueryParams(options)}`, this.buildBody("_asset_list", assets))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAssetInformationBulk(assets: [string, string][], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`asset_info${this.optionsToQueryParams(options)}`, this.buildBody("_asset_list", assets))
     }
 
-    getAssetHistory(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAssetHistory(assetPolicy: string, assetName?: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
         }
-        return this.get(`asset_history${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_history${this.optionsToQueryParams(options)}`);
     }
 
-    getPolicyAssetAddressList(assetPolicy: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPolicyAssetAddressList(assetPolicy: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
-        return this.get(`policy_asset_addresses${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`policy_asset_addresses${this.optionsToQueryParams(options)}`);
     }
 
-    getPolicyAssetInformation(assetPolicy: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPolicyAssetInformation(assetPolicy: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
-        return this.get(`policy_asset_info${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`policy_asset_info${this.optionsToQueryParams(options)}`);
     }
 
-    getPolicyAssetList(assetPolicy: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPolicyAssetList(assetPolicy: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
-        return this.get(`policy_asset_list${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`policy_asset_list${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetSummary(assetPolicy: string, assetName?: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAssetSummary(assetPolicy: string, assetName?: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
         }
-        return this.get(`asset_summary${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_summary${this.optionsToQueryParams(options)}`);
     }
 
-    getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAssetTransactions(assetPolicy: string, assetName?: string, afterBlockHeight?: number, history?: boolean, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_asset_policy", assetPolicy)
         if (assetName) {
             options.addCustomOption("_asset_name", assetName)
@@ -189,12 +85,6 @@ export class AssetServiceImpl extends BaseService implements AssetService {
         if (history) {
             options.addCustomOption("_history", String(history))
         }
-        return this.get(`asset_txs${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`asset_txs${this.optionsToQueryParams(options)}`);
     }
 }

@@ -399,7 +399,7 @@ try {
 | Variable               |  Type   | Description                                                 | Default |
 |------------------------|:-------:|-------------------------------------------------------------|:-------:|
 | KOIOS_MAX_RETRIES      | integer | Sets the max retry count upon request timeout               |    5    |
-| KOIOS_READ_TIMEOUT_SEC | integer | Sets the default read timeout for new connections (seconds) |   60    |
+| KOIOS_READ_TIMEOUT_SEC | integer | Sets the default read timeout for new connections (seconds) |   300   |
 
 ## Contributing
 

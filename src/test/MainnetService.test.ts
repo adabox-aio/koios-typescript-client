@@ -245,7 +245,7 @@ describe("koiosAssetService", () => {
         expect(result).not.toBe(null)
     });
     test("mainnetGetPolicyAssetAddressList", async () => {
-        const result = await koiosAssetService.getPolicyAssetAddressList("750900e4999ebe0d58f19b634768ba25e525aaf12403bfe8fe130501")
+        const result = await koiosAssetService.getPolicyAssetAddressList("d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff")
         console.log(result)
         expect(result).not.toBe(null)
     });
@@ -265,7 +265,7 @@ describe("koiosAssetService", () => {
         expect(result).not.toBe(null)
     });
     test("getAssetTransactions", async () => {
-        const result = await koiosAssetService.getAssetTransactions("750900e4999ebe0d58f19b634768ba25e525aaf12403bfe8fe130501", "424f4f4b", 50000, false)
+        const result = await koiosAssetService.getAssetTransactions("d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff", "444f4e545350414d", 50000, false)
         console.log(result)
         expect(result).not.toBe(null)
     });

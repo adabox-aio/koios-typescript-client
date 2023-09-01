@@ -1,6 +1,6 @@
-import {NetworkService} from '../api/network/NetworkService';
-import {EpochService} from "../api/epoch/EpochService";
-import {BlockService} from "../api/block/BlockService";
+import { NetworkService } from '../api/network/NetworkService';
+import { EpochService } from "../api/epoch/EpochService";
+import { BlockService } from "../api/block/BlockService";
 import { TransactionsService } from '../api/transactions/TransactionsService';
 import { AddressService } from '../api/address/AddressService';
 import { AssetService } from '../api/asset/AssetService';
