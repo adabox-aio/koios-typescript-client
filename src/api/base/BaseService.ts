@@ -1,6 +1,7 @@
 // import {getLimiter} from "../../utils/limiter";
 // import Bottleneck from "bottleneck";
-import { Options } from "../../factory/options/Options";
+import { Options } from "@app/factory/options/Options";
+import fetch, {RequestInit, Response} from "node-fetch";
 import * as queryString from "querystring";
 import {KoiosHttpError, KoiosTimeoutError} from "./Errors";
 
