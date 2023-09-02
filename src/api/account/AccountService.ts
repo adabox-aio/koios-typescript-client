@@ -16,7 +16,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of account (stake address) IDs
      */
-    getAccountList(options?: Options): Promise<Response>;
+    getAccountList(options?: Options): Promise<any>;
 
     /**
      * Account Information
@@ -30,7 +30,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of account information
      */
-    getAccountInformation(stakeAddresses: string[], options?: Options): Promise<Response>;
+    getAccountInformation(stakeAddresses: string[], options?: Options): Promise<any>;
 
     /**
      * Account UTxOs
@@ -44,7 +44,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of account UTxOs associated with stake address
      */
-    getAccountUTxOs(stakeAddress: string, options?: Options): Promise<Response>;
+    getAccountUTxOs(stakeAddress: string, options?: Options): Promise<any>;
 
     /**
      * Account Information (Cached)
@@ -58,7 +58,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of account information
      */
-    getAccountInformationCached(stakeAddresses: string[], options?: Options): Promise<Response>;
+    getAccountInformationCached(stakeAddresses: string[], options?: Options): Promise<any>;
 
     /**
      * Account Rewards
@@ -73,7 +73,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of reward history information
      */
-    getAccountRewards(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response>;
+    getAccountRewards(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<any>;
 
     /**
      * Account Updates
@@ -87,7 +87,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of account updates information
      */
-    getAccountUpdates(stakeAddresses: string[], options?: Options): Promise<Response>;
+    getAccountUpdates(stakeAddresses: string[], options?: Options): Promise<any>;
 
     /**
      * Account Addresses
@@ -103,7 +103,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of payment addresses
      */
-    getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options?: Options): Promise<Response>;
+    getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options?: Options): Promise<any>;
 
     /**
      * Account Assets
@@ -117,7 +117,7 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of assets owned by account
      */
-    getAccountAssets(stakeAddresses: string[], options?: Options): Promise<Response>;
+    getAccountAssets(stakeAddresses: string[], options?: Options): Promise<any>;
 
     /**
      * Account History
@@ -132,5 +132,5 @@ export interface AccountService {
      * @param options Filtering and Pagination options (optional)
      * @return Array of active stake values per epoch
      */
-    getAccountHistory(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response>;
+    getAccountHistory(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<any>;
 }

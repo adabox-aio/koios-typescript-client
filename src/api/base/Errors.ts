@@ -37,3 +37,8 @@ export class KoiosTimeoutError extends Error {
         return this.url
     }
 }
+
+export default {
+    KoiosHttpError,
+    KoiosTimeoutError
+}

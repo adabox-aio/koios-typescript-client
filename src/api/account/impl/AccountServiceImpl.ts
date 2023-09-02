@@ -1,94 +1,39 @@
-import {BaseService} from '../../base/BaseService';
-import {AccountService} from '../AccountService';
-import {Options} from '../../../factory/options/Options';
-import {KoiosHttpError} from "../../base/Errors";
+import { BaseService } from '../../base/BaseService';
+import { AccountService } from '../AccountService';
+import { Options } from '../../../factory/options/Options';
 
 /**
  * Account Service Implementation
  */
 export class AccountServiceImpl extends BaseService implements AccountService {
 
-    getAccountList(options?: Options): Promise<Response> {
-        return this.get(`account_list${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountList(options: Options = Options.builder().build()): Promise<any> {
+        return await this.get(`account_list${this.optionsToQueryParams(options)}`);
     }
 
-    getAccountInformation(stakeAddresses: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_info${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountInformation(stakeAddresses: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_info${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses));
     }
 
-    getAccountUTxOs(stakeAddress: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAccountUTxOs(stakeAddress: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_stake_address", stakeAddress)
-        return this.get(`account_utxos${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`account_utxos${this.optionsToQueryParams(options)}`);
     }
 
-    getAccountInformationCached(stakeAddresses: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_info_cached${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountInformationCached(stakeAddresses: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_info_cached${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses));
     }
 
-    getAccountRewards(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_rewards${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountRewards(stakeAddresses: string[], epochNo?: number, options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_rewards${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo));
     }
 
-    getAccountUpdates(stakeAddresses: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_updates${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountUpdates(stakeAddresses: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_updates${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses));
     }
 
 
-    getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getAccountAddresses(stakeAddresses: string[], firstOnly?: boolean, empty?: boolean, options: Options = Options.builder().build()): Promise<any> {
         const body: any = this.buildBody("_stake_addresses", stakeAddresses)
         if (firstOnly) {
             body["_first_only"] = firstOnly
@@ -96,38 +41,14 @@ export class AccountServiceImpl extends BaseService implements AccountService {
         if (empty) {
             body["_empty"] = empty
         }
-        return this.post(`account_addresses${this.optionsToQueryParams(options)}`, body)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.post(`account_addresses${this.optionsToQueryParams(options)}`, body);
     }
 
-    getAccountAssets(stakeAddresses: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_assets${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountAssets(stakeAddresses: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_assets${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses));
     }
 
-    getAccountHistory(stakeAddresses: string[], epochNo?: number, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`account_history${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getAccountHistory(stakeAddresses: string[], epochNo?: number, options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`account_history${this.optionsToQueryParams(options)}`, this.buildBody("_stake_addresses", stakeAddresses, undefined, epochNo));
     }
 }

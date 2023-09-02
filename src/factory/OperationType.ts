@@ -30,3 +30,5 @@ export class OperationType {
         return this.baseUrl;
     }
 }
+
+export default OperationType

@@ -1,152 +1,64 @@
 import { BaseService } from '../../base/BaseService';
 import { PoolService } from '../PoolService';
 import { Options } from '../../../factory/options/Options';
-import {KoiosHttpError} from "../../base/Errors";
 
 /**
  * Pool Service Implementation
  */
 export class PoolServiceImpl extends BaseService implements PoolService {
 
-    getPoolList(options?: Options): Promise<Response> {
-        return this.get(`pool_list${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getPoolList(options: Options = Options.builder().build()): Promise<any> {
+        return await this.get(`pool_list${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolInformation(poolBech32Ids: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`pool_info${this.optionsToQueryParams(options)}`, this.buildBody("_pool_bech32_ids", poolBech32Ids))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getPoolInformation(poolBech32Ids: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`pool_info${this.optionsToQueryParams(options)}`, this.buildBody("_pool_bech32_ids", poolBech32Ids));
     }
 
-    getPoolStakeSnapshot(poolBech32: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolStakeSnapshot(poolBech32: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
-        return this.get(`pool_stake_snapshot${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_stake_snapshot${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolDelegatorsList(poolBech32: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolDelegatorsList(poolBech32: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
-        return this.get(`pool_delegators${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_delegators${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolDelegatorsHistory(poolBech32: string, epochNo?: number, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
         if (epochNo) {
             options.addCustomOption("_epoch_no", String(epochNo))
         }
-        return this.get(`pool_delegators_history${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_delegators_history${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolBlocks(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolBlocks(poolBech32: string, epochNo?: number, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
         if (epochNo) {
             options.addCustomOption("_epoch_no", String(epochNo))
         }
-        return this.get(`pool_blocks${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_blocks${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolStakeBlockAndRewardHistory(poolBech32: string, epochNo?: number, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
         if (epochNo) {
             options.addCustomOption("_epoch_no", String(epochNo))
         }
-        return this.get(`pool_history${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_history${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolUpdatesHistory(poolBech32: string, options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
+    async getPoolUpdatesHistory(poolBech32: string, options: Options = Options.builder().build()): Promise<any> {
         options.addCustomOption("_pool_bech32", poolBech32)
-        return this.get(`pool_updates${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+        return await this.get(`pool_updates${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolRelays(options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.get(`pool_relays${this.optionsToQueryParams(options)}`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getPoolRelays(options: Options = Options.builder().build()): Promise<any> {
+        return await this.get(`pool_relays${this.optionsToQueryParams(options)}`);
     }
 
-    getPoolMetadata(poolBech32Ids: string[], options?: Options): Promise<Response> {
-        if (!options) {
-            options = Options.builder().build()
-        }
-        return this.post(`pool_metadata${this.optionsToQueryParams(options)}`, this.buildBody("_pool_bech32_ids", poolBech32Ids))
-            .then(async response => {
-                if (!response.ok) {
-                    throw new KoiosHttpError(JSON.stringify(await response.json()), response.status, response.statusText, response.url)
-                }
-                return response.json()
-            })
+    async getPoolMetadata(poolBech32Ids: string[], options: Options = Options.builder().build()): Promise<any> {
+        return await this.post(`pool_metadata${this.optionsToQueryParams(options)}`, this.buildBody("_pool_bech32_ids", poolBech32Ids));
     }
 }

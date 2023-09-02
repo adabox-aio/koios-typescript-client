@@ -13,7 +13,7 @@ export interface ScriptService {
      * @param options Filtering and Pagination options (optional)
      * @return List of native script and creation tx hash pairs
      */
-    getNativeScriptList(options?: Options): Promise<Response>;
+    getNativeScriptList(options?: Options): Promise<any>;
 
     /**
      * Plutus Script List
@@ -26,7 +26,7 @@ export interface ScriptService {
      * @param options Filtering and Pagination options (optional)
      * @return List of Plutus script and creation tx hash pairs
      */
-    getPlutusScriptList(options?: Options): Promise<Response>;
+    getPlutusScriptList(options?: Options): Promise<any>;
 
     /**
      * Script Redeemers
@@ -40,7 +40,7 @@ export interface ScriptService {
      * @param options Filtering and Pagination options (optional)
      * @return List of all redeemers for a given script hash
      */
-    getScriptRedeemers(scriptHash: string, options?: Options): Promise<Response>;
+    getScriptRedeemers(scriptHash: string, options?: Options): Promise<any>;
 
     /**
      * Datum Information
@@ -54,5 +54,5 @@ export interface ScriptService {
      * @param options Filtering and Pagination options (optional)
      * @return List of datum information for given datum hashes
      */
-    getDatumInformation(datumHashes: string[], options?: Options): Promise<Response>;
+    getDatumInformation(datumHashes: string[], options?: Options): Promise<any>;
 }

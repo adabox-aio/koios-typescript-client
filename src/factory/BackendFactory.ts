@@ -8,10 +8,6 @@ import { OperationType } from "./OperationType";
  */
 export class BackendFactory {
 
-    private constructor() {
-        throw new Error('Utility class');
-    }
-
     /**
      * Get Mainnet BackendService for Koios By Version
      *
@@ -74,3 +70,5 @@ export class BackendFactory {
         return new BackendServiceImpl(baseUrl);
     }
 }
+
+export default BackendFactory
