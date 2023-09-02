@@ -12,3 +12,5 @@ export class ApiVersion {
         return this.version;
     }
 }
+
+export default ApiVersion

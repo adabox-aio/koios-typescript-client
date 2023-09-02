@@ -10,10 +10,7 @@ import {
     LogicalOperatorFilterType,
     NotOperatorFilter,
     SortType, KoiosHttpError,
-} from "../index";
-
-import {describe, expect, test} from "vitest";
-
+} from "../src";
 
 const koiosPreviewService = BackendFactory.getKoiosPreviewService()
 const koiosNetworkService = koiosPreviewService.getNetworkService()
@@ -55,7 +52,7 @@ describe("koiosEpochService", () => {
         console.log(result)
         expect(result).not.toBe(null)
         expect(Array.isArray(result)).toBeTruthy()
-        expect(result.length).eq(1)
+        expect(result.length).toBe(1)
         expect(result[0].epoch_no).toBe(12)
     });
     test("getEpochProtocolParameters", async () => {
@@ -63,7 +60,7 @@ describe("koiosEpochService", () => {
         console.log(result)
         expect(result).not.toBe(null)
         expect(Array.isArray(result)).toBeTruthy()
-        expect(result.length).eq(1)
+        expect(result.length).toBe(1)
         expect(result[0].epoch_no).toBe(12)
     });
     test("getEpochBlockProtocols", async () => {
@@ -143,13 +140,11 @@ describe("koiosTransactionsService", () => {
         expect(result).not.toBe(null)
     });
     test("submitTransactionBadRequest", async () => {
-        try {
-            await koiosTransactionsService.submitTransaction(new Uint8Array([0]))
-        } catch (e) {
-            expect(e).toBeInstanceOf(KoiosHttpError)
-            expect(e).not.toBe(null)
-            expect(e.statusCode).toBe(400)
-        }
+        const result = await koiosTransactionsService.submitTransaction(new Uint8Array([0]))
+        console.log(result)
+        expect(result).toBeInstanceOf(KoiosHttpError)
+        expect(result.statusCode).toBe(400)
+        expect(result.statusText).toBe('Bad Request')
     });
     test("getTransactionStatus", async () => {
         const txHashes = [

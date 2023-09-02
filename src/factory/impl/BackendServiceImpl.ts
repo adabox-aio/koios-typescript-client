@@ -1,24 +1,24 @@
-import { BackendService } from "../BackendService";
-import { NetworkService } from "../../api/network/NetworkService";
-import { NetworkServiceImpl } from "../../api/network/impl/NetworkServiceImpl";
-import { EpochService } from "../../api/epoch/EpochService";
-import { EpochServiceImpl } from "../../api/epoch/impl/EpochServiceImpl";
-import { BlockService } from "../../api/block/BlockService";
-import { BlockServiceImpl } from "../../api/block/impl/BlockServiceImpl";
-import { TransactionsService } from "../../api/transactions/TransactionsService";
-import { TransactionsServiceImpl } from "../../api/transactions/impl/TransactionsServiceImpl";
-import { AddressService } from "../../api/address/AddressService";
-import { AddressServiceImpl } from "../../api/address/impl/AddressServiceImpl";
-import { AssetService } from "../../api/asset/AssetService";
-import { AssetServiceImpl } from "../../api/asset/impl/AssetServiceImpl";
-import { PoolService } from "../../api/pool/PoolService";
-import { PoolServiceImpl } from "../../api/pool/impl/PoolServiceImpl";
-import { ScriptService } from "../../api/script/ScriptService";
-import { ScriptServiceImpl } from "../../api/script/impl/ScriptServiceImpl";
-import { AccountService } from "../../api/account/AccountService";
-import { AccountServiceImpl } from "../../api/account/impl/AccountServiceImpl";
-import { ApiVersion } from "../ApiVersion";
-import { OperationType } from "../OperationType";
+import { BackendService } from "@app/factory/BackendService";
+import { NetworkService } from "@app/api/network/NetworkService";
+import { NetworkServiceImpl } from "@app/api/network/impl/NetworkServiceImpl";
+import { EpochService } from "@app/api/epoch/EpochService";
+import { EpochServiceImpl } from "@app/api/epoch/impl/EpochServiceImpl";
+import { BlockService } from "@app/api/block/BlockService";
+import { BlockServiceImpl } from "@app/api/block/impl/BlockServiceImpl";
+import { TransactionsService } from "@app/api/transactions/TransactionsService";
+import { TransactionsServiceImpl } from "@app/api/transactions/impl/TransactionsServiceImpl";
+import { AddressService } from "@app/api/address/AddressService";
+import { AddressServiceImpl } from "@app/api/address/impl/AddressServiceImpl";
+import { AssetService } from "@app/api/asset/AssetService";
+import { AssetServiceImpl } from "@app/api/asset/impl/AssetServiceImpl";
+import { PoolService } from "@app/api/pool/PoolService";
+import { PoolServiceImpl } from "@app/api/pool/impl/PoolServiceImpl";
+import { ScriptService } from "@app/api/script/ScriptService";
+import { ScriptServiceImpl } from "@app/api/script/impl/ScriptServiceImpl";
+import { AccountService } from "@app/api/account/AccountService";
+import { AccountServiceImpl } from "@app/api/account/impl/AccountServiceImpl";
+import { ApiVersion } from "@app/factory/ApiVersion";
+import { OperationType } from "@app/factory/OperationType";
 
 /**
 

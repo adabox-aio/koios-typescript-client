@@ -1,7 +1,7 @@
 /**
  * Sort Type
  */
-enum SortType {
+export enum SortType {
   /**
    * Ascending Order
    */

@@ -60,3 +60,8 @@ export abstract class Option {
         return this.optionType
     }
 }
+
+export default {
+    Option,
+    OptionType
+}

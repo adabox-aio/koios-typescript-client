@@ -70,3 +70,5 @@ export class BackendFactory {
         return new BackendServiceImpl(baseUrl);
     }
 }
+
+export default BackendFactory
