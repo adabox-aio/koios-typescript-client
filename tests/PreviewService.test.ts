@@ -1,7 +1,10 @@
 import {
+    ApiVersion,
+    BackendServiceImpl,
     BackendFactory,
     Options,
     Limit,
+    Select,
     Offset,
     Order,
     Filter,
@@ -22,6 +25,41 @@ const koiosAssetService = koiosPreviewService.getAssetService()
 const koiosPoolService = koiosPreviewService.getPoolService()
 const koiosScriptService = koiosPreviewService.getScriptService()
 const koiosAccountService = koiosPreviewService.getAccountService()
+
+describe("koiosBeckendService", () => {
+    test("koiosMainnetService", () => {
+        const koiosMainnetService = BackendFactory.getKoiosMainnetService()
+        expect(koiosMainnetService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosMainnetServiceByApiVersion", () => {
+        const koiosMainnetService = BackendFactory.getKoiosMainnetService(ApiVersion.VERSION_0)
+        expect(koiosMainnetService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosPreviewService", () => {
+        const koiosPreviewService = BackendFactory.getKoiosPreviewService()
+        expect(koiosPreviewService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosPreviewServiceByApiVersion", () => {
+        const koiosPreviewService = BackendFactory.getKoiosPreviewService(ApiVersion.VERSION_0)
+        expect(koiosPreviewService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosPreprodService", () => {
+        const koiosPreprodService = BackendFactory.getKoiosPreprodService()
+        expect(koiosPreprodService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosPreprodServiceByApiVersion", () => {
+        const koiosPreprodService = BackendFactory.getKoiosPreprodService(ApiVersion.VERSION_0)
+        expect(koiosPreprodService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosGuildService", () => {
+        const koiosGuildService = BackendFactory.getKoiosGuildService()
+        expect(koiosGuildService).toBeInstanceOf(BackendServiceImpl)
+    })
+    test("koiosGuildServiceByApiVersion", () => {
+        const koiosGuildService = BackendFactory.getKoiosGuildService(ApiVersion.VERSION_0)
+        expect(koiosGuildService).toBeInstanceOf(BackendServiceImpl)
+    })
+});
 
 describe("koiosNetworkService", () => {
     test("getChainTip", async () => {
@@ -220,6 +258,26 @@ describe("koiosAddressService", () => {
         expect(result.length).toBe(10)
         expect(result[0].tx_hash).toBe("8a1f7811d7c3c46c3421e5b6515239c8cd7cce21c371bb0d5c107d0296fab29d")
     });
+    test("MixedOptionsTestAsArray", async () => {
+        const addresses = [
+            'addr_test1qrvaadv0h7atv366u6966u4rft2svjlf5uajy8lkpsgdrc24rnskuetxz2u3m5ac22s3njvftxcl2fc8k8kjr088ge0qz98xmv',
+        ]
+        const opts: (Limit | Offset | Order | Filter | Select)[] = [
+            Limit.of(10),
+            Offset.of(0),
+            Order.by("block_height", SortType.DESC),
+            Filter.of("block_height", FilterType.GTE, "42248"),
+            Filter.of("block_height", FilterType.LTE, "69447"),
+            Select.by(["tx_hash", "block_height"])
+        ]
+        const options = Options.builder().options(opts).build();
+
+        const result = await koiosAddressService.getAddressTransactions(addresses, undefined, options)
+        console.log(result)
+        expect(result).not.toBe(null)
+        expect(result.length).toBe(10)
+        expect(result[0].tx_hash).toBe("8a1f7811d7c3c46c3421e5b6515239c8cd7cce21c371bb0d5c107d0296fab29d")
+    });
     test("MixedWithLogicalOperatorOptionsTest", async () => {
         const addresses = [
             'addr_test1qrvaadv0h7atv366u6966u4rft2svjlf5uajy8lkpsgdrc24rnskuetxz2u3m5ac22s3njvftxcl2fc8k8kjr088ge0qz98xmv',
@@ -230,7 +288,7 @@ describe("koiosAddressService", () => {
             .option(Order.by("block_height", SortType.DESC))
             .option(LogicalOperatorFilter.of(LogicalOperatorFilterType.AND,
                 Filter.of("block_height", FilterType.GTE, "42248"),
-                    Filter.of("block_height", FilterType.LTE, "69447"))).build();
+                Filter.of("block_height", FilterType.LTE, "69447"))).build();
 
         const result = await koiosAddressService.getAddressTransactions(addresses, undefined, options)
         console.log(result)

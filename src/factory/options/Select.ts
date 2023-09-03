@@ -27,7 +27,7 @@ export class Select extends Option {
         return new Select(params);
     }
 
-    getValue(): string {
-        return  this.params.join(",")
+    public getValue(): string {
+        return this.params.join(",")
     }
 }

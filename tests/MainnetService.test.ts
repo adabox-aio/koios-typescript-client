@@ -1,4 +1,4 @@
-import {BackendFactory, KoiosHttpError} from "../src";
+import {BackendFactory, KoiosHttpError, Options, Limit} from "../src";
 
 const koiosMainnetService = BackendFactory.getKoiosMainnetService()
 const koiosNetworkService = koiosMainnetService.getNetworkService()
@@ -206,7 +206,7 @@ describe("koiosAssetService", () => {
         expect(result).not.toBe(null)
     });
     test("getAssetTokenRegistry", async () => {
-        const result = await koiosAssetService.getAssetTokenRegistry()
+        const result = await koiosAssetService.getAssetTokenRegistry(Options.builder().option(Limit.of(10)).build())
         console.log(result)
         expect(result).not.toBe(null)
     });
