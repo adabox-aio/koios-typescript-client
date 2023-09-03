@@ -1,6 +1,7 @@
 import {ApiVersion} from "@app/factory/ApiVersion";
 import {BackendFactory} from "@app/factory/BackendFactory";
 import {BackendService} from "@app/factory/BackendService";
+import {BackendServiceImpl} from "@app/factory/impl/BackendServiceImpl";
 import {Options} from "@app/factory/options/Options";
 import {Limit} from "@app/factory/options/Limit";
 import {Offset} from "@app/factory/options/Offset";
@@ -20,6 +21,7 @@ export {
     ApiVersion,
     BackendFactory,
     BackendService,
+    BackendServiceImpl,
     OperationType,
     Options,
     Option,
