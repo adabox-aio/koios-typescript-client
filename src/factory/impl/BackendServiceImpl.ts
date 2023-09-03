@@ -26,6 +26,7 @@ import { OperationType } from "@app/factory/OperationType";
  */
 export class BackendServiceImpl implements BackendService {
 
+    private readonly baseUrl: string;
     private readonly networkService: NetworkService;
     private readonly epochService: EpochService;
     private readonly blockService: BlockService;
@@ -50,6 +51,7 @@ export class BackendServiceImpl implements BackendService {
      */
     constructor(baseUrl: string) {
         console.log(`Koios URL: ${baseUrl}`);
+        this.baseUrl = baseUrl;
         this.networkService = new NetworkServiceImpl(baseUrl);
         this.epochService = new EpochServiceImpl(baseUrl);
         this.blockService = new BlockServiceImpl(baseUrl);
@@ -59,6 +61,10 @@ export class BackendServiceImpl implements BackendService {
         this.poolService = new PoolServiceImpl(baseUrl);
         this.scriptService = new ScriptServiceImpl(baseUrl);
         this.accountService = new AccountServiceImpl(baseUrl);
+    }
+
+    getBaseUrl(): string {
+        return this.baseUrl
     }
 
     getNetworkService(): NetworkService {

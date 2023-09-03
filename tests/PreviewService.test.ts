@@ -31,6 +31,10 @@ describe("koiosBeckendService", () => {
         const koiosMainnetService = BackendFactory.getKoiosMainnetService()
         expect(koiosMainnetService).toBeInstanceOf(BackendServiceImpl)
     })
+    test("koiosCustomRPCService", () => {
+        const koiosCustomRPCService = BackendFactory.getCustomRPCService("https://preview.koios.rest/api/v0/")
+        expect(koiosPreviewService.getBaseUrl()).toBe(koiosCustomRPCService.getBaseUrl())
+    })
     test("koiosMainnetServiceByApiVersion", () => {
         const koiosMainnetService = BackendFactory.getKoiosMainnetService(ApiVersion.VERSION_0)
         expect(koiosMainnetService).toBeInstanceOf(BackendServiceImpl)
@@ -181,8 +185,10 @@ describe("koiosTransactionsService", () => {
         const result = await koiosTransactionsService.submitTransaction(new Uint8Array([0]))
         console.log(result)
         expect(result).toBeInstanceOf(KoiosHttpError)
-        expect(result.statusCode).toBe(400)
-        expect(result.statusText).toBe('Bad Request')
+        const koiosHttpError: KoiosHttpError = result
+        expect(koiosHttpError.getStatusCode()).toBe(400)
+        expect(koiosHttpError.getStatusText()).toBe('Bad Request')
+        expect(koiosHttpError.getUrl()).not.toBeNull()
     });
     test("getTransactionStatus", async () => {
         const txHashes = [
