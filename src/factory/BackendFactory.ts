@@ -67,7 +67,7 @@ export class BackendFactory {
      * @returns {@link BackendService}
      */
     public static getCustomRPCService(baseUrl: string): BackendService {
-        return new BackendServiceImpl(baseUrl);
+        return BackendServiceImpl.byBaseUrl(baseUrl);
     }
 }
 

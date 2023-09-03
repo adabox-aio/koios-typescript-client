@@ -12,6 +12,13 @@ import { AccountService } from '../api/account/AccountService';
  * Backend Service
  */
 export interface BackendService {
+
+    /**
+     * Get Base URL
+     * @return string - base url
+     */
+    getBaseUrl(): string;
+
     /**
      * Get Network Service
      *
