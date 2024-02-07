@@ -37,30 +37,31 @@ export class BackendServiceImpl implements BackendService {
     private readonly scriptService: ScriptService;
     private readonly accountService: AccountService;
 
-    public static byBaseUrl(baseUrl: string): BackendServiceImpl {
-        return new BackendServiceImpl(baseUrl);
+    public static byBaseUrl(baseUrl: string, apiToken?: string): BackendServiceImpl {
+        return new BackendServiceImpl(baseUrl, apiToken);
     }
 
-    public static byOperationTypeAndVersion(operationType: OperationType, apiVersion: ApiVersion): BackendServiceImpl {
-        return new BackendServiceImpl(operationType.getBaseUrl() + apiVersion.getVersion() + "/");
+    public static byOperationTypeAndVersion(operationType: OperationType, apiVersion: ApiVersion, apiToken?: string): BackendServiceImpl {
+        return new BackendServiceImpl(operationType.getBaseUrl() + apiVersion.getVersion() + "/", apiToken);
     }
 
     /**
      Backend Service Implementation Constructor
-     @param baseUrl baseUrl
+     @param {string} baseUrl
+     @param {string} [apiToken] - optional api token to use the koios free tier instead of the public tier
      */
-    constructor(baseUrl: string) {
+    constructor(baseUrl: string, apiToken?: string) {
         console.log(`Koios URL: ${baseUrl}`);
         this.baseUrl = baseUrl;
-        this.networkService = new NetworkServiceImpl(baseUrl);
-        this.epochService = new EpochServiceImpl(baseUrl);
-        this.blockService = new BlockServiceImpl(baseUrl);
-        this.transactionsService = new TransactionsServiceImpl(baseUrl);
-        this.addressService = new AddressServiceImpl(baseUrl);
-        this.assetService = new AssetServiceImpl(baseUrl);
-        this.poolService = new PoolServiceImpl(baseUrl);
-        this.scriptService = new ScriptServiceImpl(baseUrl);
-        this.accountService = new AccountServiceImpl(baseUrl);
+        this.networkService = new NetworkServiceImpl(baseUrl, apiToken);
+        this.epochService = new EpochServiceImpl(baseUrl, apiToken);
+        this.blockService = new BlockServiceImpl(baseUrl, apiToken);
+        this.transactionsService = new TransactionsServiceImpl(baseUrl, apiToken);
+        this.addressService = new AddressServiceImpl(baseUrl, apiToken);
+        this.assetService = new AssetServiceImpl(baseUrl, apiToken);
+        this.poolService = new PoolServiceImpl(baseUrl, apiToken);
+        this.scriptService = new ScriptServiceImpl(baseUrl, apiToken);
+        this.accountService = new AccountServiceImpl(baseUrl, apiToken);
     }
 
     getBaseUrl(): string {

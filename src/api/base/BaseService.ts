@@ -8,11 +8,15 @@ import {KoiosHttpError, KoiosTimeoutError} from "./Errors";
 export class BaseService {
 
     // private limiter: Bottleneck = getLimiter()
-    private readonly baseUrl: string = ''
+    private readonly baseUrl: string = '';
+    private readonly apiToken: string = '';
 
-    public constructor(baseUrl?: string) {
+    public constructor(baseUrl?: string, apiToken?: string) {
         if (baseUrl) {
-            this.baseUrl = baseUrl
+            this.baseUrl = baseUrl;
+        }
+        if (apiToken) {
+            this.apiToken = apiToken;
         }
     }
 
@@ -41,6 +45,13 @@ export class BaseService {
                 'Content-Type': 'application/json'
             },
             method: "GET"
+        }
+
+        if (this.apiToken) {
+            params.headers = {
+                ...params.headers,
+                Authorization: `Bearer ${this.apiToken}`
+            };
         }
 
         return await this.execute(this.baseUrl + url, params, {
@@ -77,6 +88,13 @@ export class BaseService {
             },
             method: "POST",
             body: resolveBody(body)
+        }
+
+        if (this.apiToken) {
+            params.headers = {
+                ...params.headers,
+                Authorization: `Bearer ${this.apiToken}`
+            };
         }
 
         return await this.execute(this.baseUrl + url, params, {
